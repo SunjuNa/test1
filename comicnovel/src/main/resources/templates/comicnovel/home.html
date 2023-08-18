@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>개인 프로젝트</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+    span{letter-spacing: -0.03em;}
+    body {font-family: "Open Sans"}
+    [type=button],button{-webkit-appearance: button;}
+    button{letter-spacing:-0.03em;user-select: none; }
+    button,input{overflow:visible;}
+    button,input,optgroup, select,textarea{line-height:1.15;}
+    img{border-style: none;}
+    i{vertical-align: -3px;}
+    #search{
+        outline: none;
+        border:none;
+        background-color:transparent;
+    }
+    #label1{
+        border: 1px solid rgba(0, 0, 0, 0.5%);
+        border-radius:8px;
+    }
+    #span1{
+        vertical-align: 3px;
+    }
+    .section_quick{max-width: 1170px;padding-left:30px; padding-right:30px; margin:0 auto; margin-top:30px;
+    box-sizing:border-box;}
+    .welcome_quick{
+		display:flex;
+		flex-direction:row;
+		justify-content: center;
+		margin:0 auto;
+	}
+	ul{list-style: none;}
+	li{text-align: center; line-height: initial; list-style:none;}
+	.fig-121e341{display:inline-block; flex:none; margin: 0 5%;}
+	.fig-121e341:first-of-type{margin-left:0;}
+	.fig-121e341:last-of-type{margin-right:0;}
+	.circlediv{background-color: rgb(238, 238, 238); border-radius:50%; padding: 10px}
+	.fig-162.cejl{position: relative; width:100%; height:0; padding-bottom: 100%; overflow: hidden;}
+	.fig-ih559y{font-weight: 500; font-size: 15px; line-height: 16px; text-align: center; word-break: keep-all; color: #141414;}
+	a{text-decoration-line: none; color: black; letter-spacing:inherit; cursor:pointer;}
+	@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+	
+	.nanumgothic * {
+	 font-family: 'Nanum Gothic', sans-serif;
+	}
+	.fig-1gqrqi3{
+		color: #a5a5a5;
+		letter-spacing:-0.01em;
+		font-size: 16px;
+		font-weight:500;
+		line-height:19px;
+	}
+	.fig-ehftam{
+		font-size: 22px;
+		font-weight: 700;
+		line-height: 26px;
+		letter-spacing: -0.01em;
+		color: #141414;
+		min-width:0px;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+	}
+	h2{
+		display:block;
+		margin-block-start: 0.83em;
+		margin-block-end:0.83em;
+		margin-inline-start:0px;
+		margin-inline-end:0px;
+	}
+	.fig-1fg9bka{
+		height: 48px;
+		padding-top:6px;
+		padding-bottom: 16px;
+	}
+	.fig-ajrifm{
+		max-width:1170px;
+		padding-left:30px;
+		padding-right:30px;
+		margin-top: 40px;
+	}
+	.fig-za0kxg{
+		display:flex;
+		flex-shrink:0;
+		align-items:center;
+	}
+	.fig-42m2oi{
+		display:flex;
+		-webkit-box-pack: justify;
+		-webkit-justify-content:space-between;
+		justify-content: space-between;
+		width: 100%;
+		height: 100%;
+	}
+	.fig-f794wb{
+		display:flex;
+		-webkit-align-items:center;
+		-webkit-box-align:center;
+		align-items:center;
+		min-width:0px;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		margin-top:-2px;
+	}
+	.fig-1ut9of1{position:relative;}
+	.fig-1xbvbgj{overflow:-moz-scrollbars-none;}
+	.fig-1xbvbgj{
+		display:flex;
+		flex-wrap:nowrap;
+		overflow-x:auto;
+		overflow-y:hidden;
+	}
+	.fig-1xbvbgj::-webkit-scrollbar{
+		display:none;
+	}
+	.fig-1mshoyj{
+		-webkit-flex:none;
+		flex:none;
+		width:1px;
+		margin-right:-1px;
+	}
+	.fug01292vv4{display:flex; flex:1 0 auto;}
+	.fig-1hm8916{display:flex;
+	margin:0; padding:0;
+	transition-duration: 1.5s;
+	}
+	.fig-37eeed{margin-right:6px;}
+	@media(min-width:768px){.fig-1ihiauq{width: 180px;}}
+	.fig-1lihiauq{
+		position:relative;
+		display:flex;
+		flex-direction:column;
+		align-items:flex-start;
+	}
+	@media(min-width:768px){.fig-rv5u3n{padding-bottom:145%;}}
+	.fig-rv5u3n{
+		position:relative; align-self:stretch;
+	}
+	.fig-13606cb{
+		display:block;
+		-webkit-mask-image:-webkit-radial-gradient(center, white, black);
+		position:absolute;
+		bottom:0px;left:0px;right:0px;max-height:100%;
+		border-radius:4px;
+		overflow:hidden;
+	}
+	@media(min-width:768px){.fig-mhv707{padding-bottom:145%;}}
+	@media(min-width:768px){.fig-mhv707{width:100%; height:auto;}}
+	.fig-mhv707{position:relative;}
+	.fig-mhv707::before{
+		content:"";
+		display:block;
+		position:absolute;
+		inset: 0px;
+		background: rgb(245, 245, 245);
+	}
+	.fig-mhv707::after{
+		content:"";
+		display:block;
+		position:absolute;
+		inset:0px;
+		border:1px solid rgba(20,20,20,0.06);
+		border-radius: 4px;
+	}
+	*::after, *::before{box-sizing:border-box; -webkit-font-smoothing:antialiased;}
+	@media(min-width:768px){.fig-1rhwzqu{width:100%;}}
+	.fig-1rhwzqu{
+		overflow:hidden;
+		position:absolute;
+		top:50%;left:0px;
+		transform:translate(0px, -50%);
+		width:100%;height:100%;
+	}
+	.fig-1rhwzqu::after{
+		content: "";
+		display:block;
+		position:absolute;
+		inset: 0px;
+		background: rgba(0,0,0,0.04);
+	}
+	@supports(object-fit:cover){.fig-cuj771{object-fit:cover; width:100%; height:100%;}}
+	.fig-cuj771{
+		display:block;
+		opacity:0;
+		position:absolute;
+		top:50%;left:50%;
+		transform:translate(-50%,-50%);
+	}
+	@media(min-width:768px){.fig-isc2cu5{top: 6px; right:6px; font-size:24px}}
+	.fig-isc2u5{transform: translate(0px, 0.5px); position:absolute; color-scheme: light only; font-size: 20px; top: 4px; right: 4px;}
+	@media(min-width:768px){.fig-3h0c1x{padding-right:10px;margin-top:10px;}}
+	.fig-3h0c1x{width: 100%; min-height:84px;}
+	@media(min-width:768px){.fig-uehc9v{display:-webkit-box;-webkit-box-orient: vertical; overflow:hidden; text-overflow:ellipsis; overflow-wrap:break-word; white-space:normal; max-height: calc(38px);line-height:19px; word-break:break-all; }}
+	@media(min-width:768px){.fig-uehc9v{font-size:16px;}}
+	.fig-uehc9v{font-weight:500; color: rgb(20, 20, 20); letter-spacing: -0.01em;}
+	.fig-ljwdvr{display:flex; flex-direction:column;}
+	@media(min-width:786px){.fig-gznpwu{line-height:17px;}}
+	@media(min-width:786px){.fig-gznpwu{font-size:14px;}}
+	.fig-gznpwu{
+		overflow-wrap:break-word;
+		color: rgb(120,120,120);
+		letter-spacing: -0.01em;
+		display:block;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		margin-top: 6px;
+	}
+	.fig-ljwdvr>*{
+		position:relative;
+		-webkit-box-align:center;
+	}
+	@media(min-width:768px){.fig-p48jup{line-height:16px;}}
+	@media(min-width:768px){.fig-p48jup{font-size:13px;}}
+	.fig-p48jup{
+		overflow-wrap:break-word;
+		letter-spacing:-0.01em;
+		display:flex;
+		color:rgb(220,50,50);
+		margin-top:7px;
+	}
+	.fig-poe9hb{
+		margin: 3px 2px 2px 0px;
+		color: rgb(220,50,50);
+		fong-size: 11px;
+	}
+	.fig-hn9uxh{
+		margin-left:1px;
+		color:rgb(120,120,120);
+	}
+	.fig-mtev7j{
+		flex:none;
+		width:1px;
+		margin-left:-1px;
+	}
+	.fig-csxb2z{
+		position:absolute;
+		top:0;left:0; height:100%;display:flex;
+		-webkit-box-pack:justify;
+		justify-content:space-between;
+		-webkit-box-align:center;
+		width:calc(100% + 40px); /* 사이 공백 주의 */
+		padding:0;
+		margin: 0 -20px;
+		align-items:flex-start;
+	}
+	.fig-1202vv4{
+		width: 1800px;
+	}
+	.fig-2zbaqo[disabled]{opacity:0; pointer-events:none;}
+	.fig-csxb2z>button{margin-top:110px;}
+	.fig-2zbaqo{
+		display:inline-flex;
+		-webkit-box-pack:center;
+		justify-content: center;
+		-webkit-box-align:center;
+		align-items:center;
+		width:40px;
+		height:40px;
+		cursor: pointer;
+		background:#ffffff;
+		box-shadow:2px 4px 8px rgba(0,0,0,0.06);
+		border-radius:50%;
+		border:1px solid #f0f0f0;
+		transition: opacity 0.2s ease, color 0.2s ease, pointer-events 0.2s ease;
+		color: #141414;
+		font-size:16px;
+	}
+	.fig-1dpp2x{
+		display:flex;
+		-webkit-box-align:center; 
+		align-items:center; 
+		-webkit-box-pack:center;
+		justify-content: center; 
+		transform:rotate(180deg);
+	}
+	.fig-14hy28z{
+		position:relative; width:1px; height:1px; margin:-1px; padding:0px; overflow:hidden; border:0; clip:rect(0,0,0,0);
+	}
+	.fig-d85ps1{display:flex; -webkit-box-align: center; align-items: center; -webkit-box-pack: center; justify-content: center;}
+</style>
+</head>
+<body class="w3-white">
+    <!-- w3-content defines a container for fixed size centered content, 
+    and is wrapped around the whole page content, except for the footer in this example -->
+
+<!-- Links (sit on top) -->
+    <div class="w3-bar w3-light-grey w3-hide-small">
+		<div style="width:80%;margin:0 auto;">
+		        <a href="#" class="w3-bar-item w3-button">웹툰/만화</a>
+		        <a href="#" class="w3-bar-item w3-button">웹소설</a>
+		        <a href="#" class="w3-bar-item w3-button">도서</a>
+		        <a href="/comicnovel/Login" class="w3-bar-item w3-button w3-right">로그인</a> 
+		        <a href="/comicnovel/Login" class="w3-bar-item w3-button w3-right">
+					<div class="form-check form-switch form-check-reverse">
+  						<input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
+  							<label class="form-check-label" for="flexSwitchCheckReverse" style="color: red">19금</label>
+					</div>
+				</a> 
+	    </div>
+	</div>
+	<!-- Navigation bar with social media icons -->
+	<div style="width:80%;margin:0 auto;">
+	    <div class="w3-bar w3-white w3-hide-small">
+	        <a href="#" class="w3-bar-item w3-button"><strong>ComicNovel</strong></a>
+	        <!-- <a href="#" class="w3-bar-item w3-button"><i class="fa fa-facebook-official"></i></a> -->
+	        <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-list"></i></a>
+	        <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-person"></i></a>
+	        <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-book"></i></a>
+	        <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-bell"></i></a>
+	   <!--     <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-cart"></i></a>-->
+	        <form action="/comicnovel/result" method="GET" class="w3-bar-item w3-button w3-right" role="search">
+	            <label id="label1" class="w3-light-grey">
+	                <input id="search" type="text" placeholder="&nbsp;&nbsp;도서 키워드 입력">
+	                <button type="submit" style="border:none; background-color: transparent;"><span id="span1"><i class="bi bi-search button"></i></span></button>
+	            </label>
+	        </form>
+	    </div>
+	</div>
+
+<!-- banner -->
+	<div style="width:80%;margin:0 auto;">
+	    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+	        <div style="width:80%; margin: 0 auto">
+	            <div class="carousel-indicators">
+	            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+	            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+	            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+	            </div>
+	            <div class="carousel-inner">
+	            <div class="carousel-item active">
+	                <img src="/img/ffxiv_20210917_172139_712.png" class="d-block w-100" alt="">
+	            </div>
+	            <div class="carousel-item">
+	                <img src="/img/ffxiv_20210918_134532_762.png" class="d-block w-100" alt="">
+	            </div>
+	            <div class="carousel-item">
+	                <img src="/img/ffxiv_20221021_164449_335.png" class="d-block w-100" alt="">
+	            </div>
+	        </div>
+	        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+	        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: rgb(99, 99, 99);border-radius:0.5rem;"></span>
+	        <span class="visually-hidden" >Previous</span>
+	        </button>
+	        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+	        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: rgb(99, 99, 99);border-radius:0.5rem;"></span>
+	        <span class="visually-hidden">Next</span>
+	        </button>
+	    </div>
+	</div>
+
+<!-- 퀵 메뉴 -->
+	<section class="section_quick">
+		<ul class="welcome_quick">
+		    <li class="fig-121e341">
+				<a href="">
+					<div class="circlediv">
+					<div class="fig-162cejl">
+						<img width="50" height="50" src="https://img.icons8.com/ios-filled/50/n.png" alt="n"/>
+					</div>
+					</div>
+					<span class="fig-ih559y nanumgothic">신작</span>
+				</a>
+			</li>
+		    <li class="fig-121e341"><a><div class="circlediv"><div class="fig-162cejl">
+				<img width="50" height="50" src="https://img.icons8.com/ios/50/crown.png" alt="crown"/>
+			</div></div><span class="fig-ih559y nanumgothic">베스트</span></a></li>
+		    <li class="fig-121e341"><a><div class="circlediv"><div class="fig-162cejl">
+				<img width="50" height="50" src="https://img.icons8.com/ios/50/shopping-1.png" alt="shopping-1"/>
+			</div></div><span class="fig-ih559y nanumgothic">굿즈</span></a></li>
+		    <li class="fig-121e341"><a><div class="circlediv"><div class="fig-162cejl">
+				<img width="50" height="50" src="https://img.icons8.com/ios/50/easel.png" alt="easel"/>
+			</div></div><span class="fig-ih559y nanumgothic">팬작품</span></a></li>
+		    <!--<li class="fig-121e341"><a><div class="circlediv"><div class="fig-162cejl">
+				<img width="50" height="50" src="https://img.icons8.com/ios/50/calendarv1.png" alt="calendar--v1"/>
+			</div></div><span class="fig-ih559y nanumgothic">팔로업 게시판</span></a></li>-->
+	</section>
+	
+	<!-- 신작 코너 -->
+	<section class="fig-ajrifm"> 
+		<div class="fig-1fg9bka">
+			<div class="fig-42m2oi">
+				<div class="fig-f794wb">
+					<h2 class="fig-ehftam">신작 컬렉션</h2>
+				</div>
+				<div class="fig-za0kxg">
+					<a href="" class="fig-1gqrqi3">더보기</a>
+				</div>
+			</div>
+		</div>
+		<div class="fig-1ut9of1">
+			<div class="fig-1xbvbgj">
+				<div class="fig-1mshoyj"></div>
+				<div class="fig-1202vv4">
+					<ul class="fig-1hm8916">
+						<li class="fig-37eeed">
+							<div class="fig-1ihiauq">
+								<div class="fig-rv5u3n">
+									<a href="" class="fig-13606cb">
+										<div class="fig-mhv707">
+											<div class="fig-1rhwzqu">
+												<img class="fig-cuj771">
+											</div>
+										</div>
+										<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="19세 미만 구독불가" class="fig-isc2u5"><circle cx="12" cy="12" r="12" fill="#fff"></circle><path opacity="0.8" d="M.5 12a11.5 11.5 0 1023 0 11.5 11.5 0 10-23 0" stroke="#DC3232"></path><g clip-path="url(#BadgeAdult_svg__clip0_7220_94960)"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 10.677c0-1.547 1.19-2.677 2.86-2.677C16.07 8 17.5 9.156 17.5 11.902v.01C17.5 14.48 16.331 16 14.395 16c-1.414 0-2.47-.829-2.716-1.996l-.011-.058h1.355l.016.053c.203.533.678.882 1.356.882 1.222 0 1.739-1.183 1.798-2.64l.002-.088.003-.087h-.107c-.282.602-.955 1.135-2.011 1.135-1.478 0-2.513-1.066-2.513-2.513v-.01zm1.344-.037c0 .882.635 1.516 1.51 1.516.87 0 1.537-.623 1.537-1.484v-.01c0-.872-.667-1.553-1.52-1.553-.85 0-1.527.67-1.527 1.52v.011zm-3.028 5.17H8.506V9.531h-.09L6.5 10.873V9.589L8.512 8.19h1.37v7.62z" fill="#000"></path></g><defs><clipPath id="BadgeAdult_svg__clip0_7220_94960"><path fill="#fff" transform="translate(6 8)" d="M0 0h12v8H0z"></path></clipPath></defs></svg>
+									</a>
+								</div>
+								<div class="fig-3h0c1x">
+									<div>
+										<a href="" class="fig-uehc9v">1번제목</a>
+									</div>
+									<div class="fig-ljwdvr">
+										<p class="fig-gznpwu">
+											<a class="fig-176xfvp" href="">작가이름</a>
+										</p>
+										<p class="fig-p48jup">
+											<svg width="1em" height="1em" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="구매자 평균 별점" class="fig-poe9hb"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 0l1.812 3.303L11 4.025 8.446 6.759l.459 3.741L5.5 8.903 2.095 10.5l.459-3.74L0 4.002l3.688-.7L5.5 0z" fill="currentColor"></path></svg>
+												평점수
+											<span class="fig-hn9uxh">
+												"("
+												참여한 인원
+												")"
+											</span>
+										</p>
+									</div>
+									</div>
+								<a href="" class="fig-1rb85bg"></a>
+							</div>
+						</li>
+						<li class="fig-37eeed">
+							<div class="fig-1ihiauq">
+								<div class="fig-rv5u3n">
+									<a href="" class="fig-13606cb">
+										<div class="fig-mhv707">
+											<div class="fig-1rhwzqu">
+												<img class="fig-cuj771">
+											</div>
+										</div>
+										<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="19세 미만 구독불가" class="fig-isc2u5"><circle cx="12" cy="12" r="12" fill="#fff"></circle><path opacity="0.8" d="M.5 12a11.5 11.5 0 1023 0 11.5 11.5 0 10-23 0" stroke="#DC3232"></path><g clip-path="url(#BadgeAdult_svg__clip0_7220_94960)"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 10.677c0-1.547 1.19-2.677 2.86-2.677C16.07 8 17.5 9.156 17.5 11.902v.01C17.5 14.48 16.331 16 14.395 16c-1.414 0-2.47-.829-2.716-1.996l-.011-.058h1.355l.016.053c.203.533.678.882 1.356.882 1.222 0 1.739-1.183 1.798-2.64l.002-.088.003-.087h-.107c-.282.602-.955 1.135-2.011 1.135-1.478 0-2.513-1.066-2.513-2.513v-.01zm1.344-.037c0 .882.635 1.516 1.51 1.516.87 0 1.537-.623 1.537-1.484v-.01c0-.872-.667-1.553-1.52-1.553-.85 0-1.527.67-1.527 1.52v.011zm-3.028 5.17H8.506V9.531h-.09L6.5 10.873V9.589L8.512 8.19h1.37v7.62z" fill="#000"></path></g><defs><clipPath id="BadgeAdult_svg__clip0_7220_94960"><path fill="#fff" transform="translate(6 8)" d="M0 0h12v8H0z"></path></clipPath></defs></svg>
+									</a>
+								</div>
+								<div class="fig-3h0c1x">
+									<div>
+										<a href="" class="fig-uehc9v">2번제목</a>
+									</div>
+									<div class="fig-ljwdvr">
+										<p class="fig-gznpwu">
+											<a class="fig-176xfvp" href="">작가이름</a>
+										</p>
+										<p class="fig-p48jup">
+											<svg width="1em" height="1em" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="구매자 평균 별점" class="fig-poe9hb"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 0l1.812 3.303L11 4.025 8.446 6.759l.459 3.741L5.5 8.903 2.095 10.5l.459-3.74L0 4.002l3.688-.7L5.5 0z" fill="currentColor"></path></svg>
+												평점수
+											<span class="fig-hn9uxh">
+												"("
+												참여한 인원
+												")"
+											</span>
+										</p>
+									</div>
+									</div>
+								<a href="" class="fig-1rb85bg"></a>
+							</div>
+						</li>
+						<li class="fig-37eeed">
+							<div class="fig-1ihiauq">
+								<div class="fig-rv5u3n">
+									<a href="" class="fig-13606cb">
+										<div class="fig-mhv707">
+											<div class="fig-1rhwzqu">
+												<img class="fig-cuj771">
+											</div>
+										</div>
+										<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="19세 미만 구독불가" class="fig-isc2u5"><circle cx="12" cy="12" r="12" fill="#fff"></circle><path opacity="0.8" d="M.5 12a11.5 11.5 0 1023 0 11.5 11.5 0 10-23 0" stroke="#DC3232"></path><g clip-path="url(#BadgeAdult_svg__clip0_7220_94960)"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 10.677c0-1.547 1.19-2.677 2.86-2.677C16.07 8 17.5 9.156 17.5 11.902v.01C17.5 14.48 16.331 16 14.395 16c-1.414 0-2.47-.829-2.716-1.996l-.011-.058h1.355l.016.053c.203.533.678.882 1.356.882 1.222 0 1.739-1.183 1.798-2.64l.002-.088.003-.087h-.107c-.282.602-.955 1.135-2.011 1.135-1.478 0-2.513-1.066-2.513-2.513v-.01zm1.344-.037c0 .882.635 1.516 1.51 1.516.87 0 1.537-.623 1.537-1.484v-.01c0-.872-.667-1.553-1.52-1.553-.85 0-1.527.67-1.527 1.52v.011zm-3.028 5.17H8.506V9.531h-.09L6.5 10.873V9.589L8.512 8.19h1.37v7.62z" fill="#000"></path></g><defs><clipPath id="BadgeAdult_svg__clip0_7220_94960"><path fill="#fff" transform="translate(6 8)" d="M0 0h12v8H0z"></path></clipPath></defs></svg>
+									</a>
+								</div>
+								<div class="fig-3h0c1x">
+									<div>
+										<a href="" class="fig-uehc9v">3번제목</a>
+									</div>
+									<div class="fig-ljwdvr">
+										<p class="fig-gznpwu">
+											<a class="fig-176xfvp" href="">작가이름</a>
+										</p>
+										<p class="fig-p48jup">
+											<svg width="1em" height="1em" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="구매자 평균 별점" class="fig-poe9hb"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 0l1.812 3.303L11 4.025 8.446 6.759l.459 3.741L5.5 8.903 2.095 10.5l.459-3.74L0 4.002l3.688-.7L5.5 0z" fill="currentColor"></path></svg>
+												평점수
+											<span class="fig-hn9uxh">
+												"("
+												참여한 인원
+												")"
+											</span>
+										</p>
+									</div>
+									</div>
+								<a href="" class="fig-1rb85bg"></a>
+							</div>
+						</li>
+						<li class="fig-37eeed">
+							<div class="fig-1ihiauq">
+								<div class="fig-rv5u3n">
+									<a href="" class="fig-13606cb">
+										<div class="fig-mhv707">
+											<div class="fig-1rhwzqu">
+												<img class="fig-cuj771">
+											</div>
+										</div>
+										<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="19세 미만 구독불가" class="fig-isc2u5"><circle cx="12" cy="12" r="12" fill="#fff"></circle><path opacity="0.8" d="M.5 12a11.5 11.5 0 1023 0 11.5 11.5 0 10-23 0" stroke="#DC3232"></path><g clip-path="url(#BadgeAdult_svg__clip0_7220_94960)"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 10.677c0-1.547 1.19-2.677 2.86-2.677C16.07 8 17.5 9.156 17.5 11.902v.01C17.5 14.48 16.331 16 14.395 16c-1.414 0-2.47-.829-2.716-1.996l-.011-.058h1.355l.016.053c.203.533.678.882 1.356.882 1.222 0 1.739-1.183 1.798-2.64l.002-.088.003-.087h-.107c-.282.602-.955 1.135-2.011 1.135-1.478 0-2.513-1.066-2.513-2.513v-.01zm1.344-.037c0 .882.635 1.516 1.51 1.516.87 0 1.537-.623 1.537-1.484v-.01c0-.872-.667-1.553-1.52-1.553-.85 0-1.527.67-1.527 1.52v.011zm-3.028 5.17H8.506V9.531h-.09L6.5 10.873V9.589L8.512 8.19h1.37v7.62z" fill="#000"></path></g><defs><clipPath id="BadgeAdult_svg__clip0_7220_94960"><path fill="#fff" transform="translate(6 8)" d="M0 0h12v8H0z"></path></clipPath></defs></svg>
+									</a>
+								</div>
+								<div class="fig-3h0c1x">
+									<div>
+										<a href="" class="fig-uehc9v">4번제목</a>
+									</div>
+									<div class="fig-ljwdvr">
+										<p class="fig-gznpwu">
+											<a class="fig-176xfvp" href="">작가이름</a>
+										</p>
+										<p class="fig-p48jup">
+											<svg width="1em" height="1em" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="구매자 평균 별점" class="fig-poe9hb"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 0l1.812 3.303L11 4.025 8.446 6.759l.459 3.741L5.5 8.903 2.095 10.5l.459-3.74L0 4.002l3.688-.7L5.5 0z" fill="currentColor"></path></svg>
+												평점수
+											<span class="fig-hn9uxh">
+												"("
+												참여한 인원
+												")"
+											</span>
+										</p>
+									</div>
+									</div>
+								<a href="" class="fig-1rb85bg"></a>
+							</div>
+						</li>
+						<li class="fig-37eeed">
+							<div class="fig-1ihiauq">
+								<div class="fig-rv5u3n">
+									<a href="" class="fig-13606cb">
+										<div class="fig-mhv707">
+											<div class="fig-1rhwzqu">
+												<img class="fig-cuj771">
+											</div>
+										</div>
+										<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="19세 미만 구독불가" class="fig-isc2u5"><circle cx="12" cy="12" r="12" fill="#fff"></circle><path opacity="0.8" d="M.5 12a11.5 11.5 0 1023 0 11.5 11.5 0 10-23 0" stroke="#DC3232"></path><g clip-path="url(#BadgeAdult_svg__clip0_7220_94960)"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 10.677c0-1.547 1.19-2.677 2.86-2.677C16.07 8 17.5 9.156 17.5 11.902v.01C17.5 14.48 16.331 16 14.395 16c-1.414 0-2.47-.829-2.716-1.996l-.011-.058h1.355l.016.053c.203.533.678.882 1.356.882 1.222 0 1.739-1.183 1.798-2.64l.002-.088.003-.087h-.107c-.282.602-.955 1.135-2.011 1.135-1.478 0-2.513-1.066-2.513-2.513v-.01zm1.344-.037c0 .882.635 1.516 1.51 1.516.87 0 1.537-.623 1.537-1.484v-.01c0-.872-.667-1.553-1.52-1.553-.85 0-1.527.67-1.527 1.52v.011zm-3.028 5.17H8.506V9.531h-.09L6.5 10.873V9.589L8.512 8.19h1.37v7.62z" fill="#000"></path></g><defs><clipPath id="BadgeAdult_svg__clip0_7220_94960"><path fill="#fff" transform="translate(6 8)" d="M0 0h12v8H0z"></path></clipPath></defs></svg>
+									</a>
+								</div>
+								<div class="fig-3h0c1x">
+									<div>
+										<a href="" class="fig-uehc9v">5번제목</a>
+									</div>
+									<div class="fig-ljwdvr">
+										<p class="fig-gznpwu">
+											<a class="fig-176xfvp" href="">작가이름</a>
+										</p>
+										<p class="fig-p48jup">
+											<svg width="1em" height="1em" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="구매자 평균 별점" class="fig-poe9hb"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 0l1.812 3.303L11 4.025 8.446 6.759l.459 3.741L5.5 8.903 2.095 10.5l.459-3.74L0 4.002l3.688-.7L5.5 0z" fill="currentColor"></path></svg>
+												평점수
+											<span class="fig-hn9uxh">
+												"("
+												참여한 인원
+												")"
+											</span>
+										</p>
+									</div>
+									</div>
+								<a href="" class="fig-1rb85bg"></a>
+							</div>
+						</li>
+						<li class="fig-37eeed">
+							<div class="fig-1ihiauq">
+								<div class="fig-rv5u3n">
+									<a href="" class="fig-13606cb">
+										<div class="fig-mhv707">
+											<div class="fig-1rhwzqu">
+												<img class="fig-cuj771">
+											</div>
+										</div>
+										<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="19세 미만 구독불가" class="fig-isc2u5"><circle cx="12" cy="12" r="12" fill="#fff"></circle><path opacity="0.8" d="M.5 12a11.5 11.5 0 1023 0 11.5 11.5 0 10-23 0" stroke="#DC3232"></path><g clip-path="url(#BadgeAdult_svg__clip0_7220_94960)"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 10.677c0-1.547 1.19-2.677 2.86-2.677C16.07 8 17.5 9.156 17.5 11.902v.01C17.5 14.48 16.331 16 14.395 16c-1.414 0-2.47-.829-2.716-1.996l-.011-.058h1.355l.016.053c.203.533.678.882 1.356.882 1.222 0 1.739-1.183 1.798-2.64l.002-.088.003-.087h-.107c-.282.602-.955 1.135-2.011 1.135-1.478 0-2.513-1.066-2.513-2.513v-.01zm1.344-.037c0 .882.635 1.516 1.51 1.516.87 0 1.537-.623 1.537-1.484v-.01c0-.872-.667-1.553-1.52-1.553-.85 0-1.527.67-1.527 1.52v.011zm-3.028 5.17H8.506V9.531h-.09L6.5 10.873V9.589L8.512 8.19h1.37v7.62z" fill="#000"></path></g><defs><clipPath id="BadgeAdult_svg__clip0_7220_94960"><path fill="#fff" transform="translate(6 8)" d="M0 0h12v8H0z"></path></clipPath></defs></svg>
+									</a>
+								</div>
+								<div class="fig-3h0c1x">
+									<div>
+										<a href="" class="fig-uehc9v">6번제목</a>
+									</div>
+									<div class="fig-ljwdvr">
+										<p class="fig-gznpwu">
+											<a class="fig-176xfvp" href="">작가이름</a>
+										</p>
+										<p class="fig-p48jup">
+											<svg width="1em" height="1em" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="구매자 평균 별점" class="fig-poe9hb"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 0l1.812 3.303L11 4.025 8.446 6.759l.459 3.741L5.5 8.903 2.095 10.5l.459-3.74L0 4.002l3.688-.7L5.5 0z" fill="currentColor"></path></svg>
+												평점수
+											<span class="fig-hn9uxh">
+												"("
+												참여한 인원
+												")"
+											</span>
+										</p>
+									</div>
+									</div>
+								<a href="" class="fig-1rb85bg"></a>
+							</div>
+						</li>
+						<li class="fig-37eeed">
+							<div class="fig-1ihiauq">
+								<div class="fig-rv5u3n">
+									<a href="" class="fig-13606cb">
+										<div class="fig-mhv707">
+											<div class="fig-1rhwzqu">
+												<img class="fig-cuj771">
+											</div>
+										</div>
+										<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="19세 미만 구독불가" class="fig-isc2u5"><circle cx="12" cy="12" r="12" fill="#fff"></circle><path opacity="0.8" d="M.5 12a11.5 11.5 0 1023 0 11.5 11.5 0 10-23 0" stroke="#DC3232"></path><g clip-path="url(#BadgeAdult_svg__clip0_7220_94960)"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 10.677c0-1.547 1.19-2.677 2.86-2.677C16.07 8 17.5 9.156 17.5 11.902v.01C17.5 14.48 16.331 16 14.395 16c-1.414 0-2.47-.829-2.716-1.996l-.011-.058h1.355l.016.053c.203.533.678.882 1.356.882 1.222 0 1.739-1.183 1.798-2.64l.002-.088.003-.087h-.107c-.282.602-.955 1.135-2.011 1.135-1.478 0-2.513-1.066-2.513-2.513v-.01zm1.344-.037c0 .882.635 1.516 1.51 1.516.87 0 1.537-.623 1.537-1.484v-.01c0-.872-.667-1.553-1.52-1.553-.85 0-1.527.67-1.527 1.52v.011zm-3.028 5.17H8.506V9.531h-.09L6.5 10.873V9.589L8.512 8.19h1.37v7.62z" fill="#000"></path></g><defs><clipPath id="BadgeAdult_svg__clip0_7220_94960"><path fill="#fff" transform="translate(6 8)" d="M0 0h12v8H0z"></path></clipPath></defs></svg>
+									</a>
+								</div>
+								<div class="fig-3h0c1x">
+									<div>
+										<a href="" class="fig-uehc9v">7번제목</a>
+									</div>
+									<div class="fig-ljwdvr">
+										<p class="fig-gznpwu">
+											<a class="fig-176xfvp" href="">작가이름</a>
+										</p>
+										<p class="fig-p48jup">
+											<svg width="1em" height="1em" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="구매자 평균 별점" class="fig-poe9hb"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 0l1.812 3.303L11 4.025 8.446 6.759l.459 3.741L5.5 8.903 2.095 10.5l.459-3.74L0 4.002l3.688-.7L5.5 0z" fill="currentColor"></path></svg>
+												평점수
+											<span class="fig-hn9uxh">
+												"("
+												참여한 인원
+												")"
+											</span>
+										</p>
+									</div>
+									</div>
+								<a href="" class="fig-1rb85bg"></a>
+							</div>
+						</li>
+						<li class="fig-37eeed">
+							<div class="fig-1ihiauq">
+								<div class="fig-rv5u3n">
+									<a href="" class="fig-13606cb">
+										<div class="fig-mhv707">
+											<div class="fig-1rhwzqu">
+												<img class="fig-cuj771">
+											</div>
+										</div>
+										<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="19세 미만 구독불가" class="fig-isc2u5"><circle cx="12" cy="12" r="12" fill="#fff"></circle><path opacity="0.8" d="M.5 12a11.5 11.5 0 1023 0 11.5 11.5 0 10-23 0" stroke="#DC3232"></path><g clip-path="url(#BadgeAdult_svg__clip0_7220_94960)"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 10.677c0-1.547 1.19-2.677 2.86-2.677C16.07 8 17.5 9.156 17.5 11.902v.01C17.5 14.48 16.331 16 14.395 16c-1.414 0-2.47-.829-2.716-1.996l-.011-.058h1.355l.016.053c.203.533.678.882 1.356.882 1.222 0 1.739-1.183 1.798-2.64l.002-.088.003-.087h-.107c-.282.602-.955 1.135-2.011 1.135-1.478 0-2.513-1.066-2.513-2.513v-.01zm1.344-.037c0 .882.635 1.516 1.51 1.516.87 0 1.537-.623 1.537-1.484v-.01c0-.872-.667-1.553-1.52-1.553-.85 0-1.527.67-1.527 1.52v.011zm-3.028 5.17H8.506V9.531h-.09L6.5 10.873V9.589L8.512 8.19h1.37v7.62z" fill="#000"></path></g><defs><clipPath id="BadgeAdult_svg__clip0_7220_94960"><path fill="#fff" transform="translate(6 8)" d="M0 0h12v8H0z"></path></clipPath></defs></svg>
+									</a>
+								</div>
+								<div class="fig-3h0c1x">
+									<div>
+										<a href="" class="fig-uehc9v">8번제목</a>
+									</div>
+									<div class="fig-ljwdvr">
+										<p class="fig-gznpwu">
+											<a class="fig-176xfvp" href="">작가이름</a>
+										</p>
+										<p class="fig-p48jup">
+											<svg width="1em" height="1em" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="구매자 평균 별점" class="fig-poe9hb"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 0l1.812 3.303L11 4.025 8.446 6.759l.459 3.741L5.5 8.903 2.095 10.5l.459-3.74L0 4.002l3.688-.7L5.5 0z" fill="currentColor"></path></svg>
+												평점수
+											<span class="fig-hn9uxh">
+												"("
+												참여한 인원
+												")"
+											</span>
+										</p>
+									</div>
+									</div>
+								<a href="" class="fig-1rb85bg"></a>
+							</div>
+						</li>
+						<li class="fig-37eeed">
+							<div class="fig-1ihiauq">
+								<div class="fig-rv5u3n">
+									<a href="" class="fig-13606cb">
+										<div class="fig-mhv707">
+											<div class="fig-1rhwzqu">
+												<img class="fig-cuj771">
+											</div>
+										</div>
+										<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="19세 미만 구독불가" class="fig-isc2u5"><circle cx="12" cy="12" r="12" fill="#fff"></circle><path opacity="0.8" d="M.5 12a11.5 11.5 0 1023 0 11.5 11.5 0 10-23 0" stroke="#DC3232"></path><g clip-path="url(#BadgeAdult_svg__clip0_7220_94960)"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 10.677c0-1.547 1.19-2.677 2.86-2.677C16.07 8 17.5 9.156 17.5 11.902v.01C17.5 14.48 16.331 16 14.395 16c-1.414 0-2.47-.829-2.716-1.996l-.011-.058h1.355l.016.053c.203.533.678.882 1.356.882 1.222 0 1.739-1.183 1.798-2.64l.002-.088.003-.087h-.107c-.282.602-.955 1.135-2.011 1.135-1.478 0-2.513-1.066-2.513-2.513v-.01zm1.344-.037c0 .882.635 1.516 1.51 1.516.87 0 1.537-.623 1.537-1.484v-.01c0-.872-.667-1.553-1.52-1.553-.85 0-1.527.67-1.527 1.52v.011zm-3.028 5.17H8.506V9.531h-.09L6.5 10.873V9.589L8.512 8.19h1.37v7.62z" fill="#000"></path></g><defs><clipPath id="BadgeAdult_svg__clip0_7220_94960"><path fill="#fff" transform="translate(6 8)" d="M0 0h12v8H0z"></path></clipPath></defs></svg>
+									</a>
+								</div>
+								<div class="fig-3h0c1x">
+									<div>
+										<a href="" class="fig-uehc9v">9번제목</a>
+									</div>
+									<div class="fig-ljwdvr">
+										<p class="fig-gznpwu">
+											<a class="fig-176xfvp" href="">작가이름</a>
+										</p>
+										<p class="fig-p48jup">
+											<svg width="1em" height="1em" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="구매자 평균 별점" class="fig-poe9hb"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 0l1.812 3.303L11 4.025 8.446 6.759l.459 3.741L5.5 8.903 2.095 10.5l.459-3.74L0 4.002l3.688-.7L5.5 0z" fill="currentColor"></path></svg>
+												평점수
+											<span class="fig-hn9uxh">
+												"("
+												참여한 인원
+												")"
+											</span>
+										</p>
+									</div>
+									</div>
+								<a href="" class="fig-1rb85bg"></a>
+							</div>
+						</li>
+						<li class="fig-37eeed">
+							<div class="fig-1ihiauq">
+								<div class="fig-rv5u3n">
+									<a href="" class="fig-13606cb">
+										<div class="fig-mhv707">
+											<div class="fig-1rhwzqu">
+												<img class="fig-cuj771">
+											</div>
+										</div>
+										<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="19세 미만 구독불가" class="fig-isc2u5"><circle cx="12" cy="12" r="12" fill="#fff"></circle><path opacity="0.8" d="M.5 12a11.5 11.5 0 1023 0 11.5 11.5 0 10-23 0" stroke="#DC3232"></path><g clip-path="url(#BadgeAdult_svg__clip0_7220_94960)"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 10.677c0-1.547 1.19-2.677 2.86-2.677C16.07 8 17.5 9.156 17.5 11.902v.01C17.5 14.48 16.331 16 14.395 16c-1.414 0-2.47-.829-2.716-1.996l-.011-.058h1.355l.016.053c.203.533.678.882 1.356.882 1.222 0 1.739-1.183 1.798-2.64l.002-.088.003-.087h-.107c-.282.602-.955 1.135-2.011 1.135-1.478 0-2.513-1.066-2.513-2.513v-.01zm1.344-.037c0 .882.635 1.516 1.51 1.516.87 0 1.537-.623 1.537-1.484v-.01c0-.872-.667-1.553-1.52-1.553-.85 0-1.527.67-1.527 1.52v.011zm-3.028 5.17H8.506V9.531h-.09L6.5 10.873V9.589L8.512 8.19h1.37v7.62z" fill="#000"></path></g><defs><clipPath id="BadgeAdult_svg__clip0_7220_94960"><path fill="#fff" transform="translate(6 8)" d="M0 0h12v8H0z"></path></clipPath></defs></svg>
+									</a>
+								</div>
+								<div class="fig-3h0c1x">
+									<div>
+										<a href="" class="fig-uehc9v">10번제목</a>
+									</div>
+									<div class="fig-ljwdvr">
+										<p class="fig-gznpwu">
+											<a class="fig-176xfvp" href="">작가이름</a>
+										</p>
+										<p class="fig-p48jup">
+											<svg width="1em" height="1em" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="구매자 평균 별점" class="fig-poe9hb"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 0l1.812 3.303L11 4.025 8.446 6.759l.459 3.741L5.5 8.903 2.095 10.5l.459-3.74L0 4.002l3.688-.7L5.5 0z" fill="currentColor"></path></svg>
+												평점수
+											<span class="fig-hn9uxh">
+												"("
+												참여한 인원
+												")"
+											</span>
+										</p>
+									</div>
+									</div>
+								<a href="" class="fig-1rb85bg"></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="fig-mtev7j"></div>
+			</div>
+			<div class="fig-csxb2z">
+				<button type="button" id="prev" class="fig-2zbaqo" disabled><span class="fig-1dpp2x e1utob8u0"><svg width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="fig-0"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.63859 14.2293C4.36522 13.9559 4.36522 13.5127 4.63859 13.2394L9.87695 8.00099L4.63859 2.76263C4.36522 2.48927 4.36522 2.04605 4.63859 1.77268C4.91195 1.49932 5.35517 1.49932 5.62854 1.77268L11.3619 7.50602C11.6352 7.77939 11.6352 8.2226 11.3619 8.49597L5.62854 14.2293C5.35517 14.5027 4.91195 14.5027 4.63859 14.2293Z" fill="currentColor"></path></svg></span><span class="fig-14hy28z">이전</span></button>
+				<button type="button" id="next" class="fig-2zbaqo"><span class="fig-d85ps1 e1utob8u0"><svg width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="fig-0"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.63859 14.2293C4.36522 13.9559 4.36522 13.5127 4.63859 13.2394L9.87695 8.00099L4.63859 2.76263C4.36522 2.48927 4.36522 2.04605 4.63859 1.77268C4.91195 1.49932 5.35517 1.49932 5.62854 1.77268L11.3619 7.50602C11.6352 7.77939 11.6352 8.2226 11.3619 8.49597L5.62854 14.2293C5.35517 14.5027 4.91195 14.5027 4.63859 14.2293Z" fill="currentColor"></path></svg></span><span class="fig-14hy28z">다음</span></button>
+			</div>
+		</div>
+	</section>
+	
+	
+</body>
+<script th:src="@{/js/jquery-3.7.0.js}"></script>
+<script th:inline="javascript">
+	const list = document.querySelector(".fig-1hm8916");
+	const next_Btn = document.getElementById("next");
+	const prev_Btn = document.getElementById("prev");
+	console.log("버튼 밖 요소입니다");
+	let positionValue=0;
+	
+	next_Btn.addEventListener("click",function(){
+		console.log("다음 버튼이 클릭되었습니다");
+		positionValue+=1800*0.25;
+		if(positionValue<=1800 && positionValue>0){
+			list.style.transform=`translateX(-${positionValue}px)`;
+			prev_Btn.removeAttribute("disabled");
+		}
+		else if(positionValue>=1800){
+			list.style.transform=`translateX(-${1800+3}px)`;
+			next_Btn.setAttribute("disabled", 'true');
+		}
+	})
+	
+	prev_Btn.addEventListener("click", function(){
+		console.log("이전 버튼이 클릭되었습니다");
+		positionValue-=1800*0.25;
+		if(positionValue>0 && positionValue<=1800){
+			list.style.transform=`translateX(-${positionValue}px)`;
+			next_Btn.removeAttribute("disabled");
+		}
+		else if(positionValue<=0){
+			list.style.transform=`translateX(-${0}px)`;
+			prev_Btn.setAttribute("disabled", 'true');
+		}
+	})
+	
+</script>
+</html>
