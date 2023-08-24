@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>책 검색 결과</title>
+</head>
+<style>
+	th{
+		border:1px solid black;
+		background-color: darkgray;
+	}
+	td{border: 1px solid black;}
+</style>
+<body>
+	<h1>책 검색 결과</h1>
+	<table>
+		<thead>
+			<th>title</th>
+			<th>cover</th>
+			<th>author</th>
+			<th>pubDate</th>
+			<th>priceSales</th>
+			<th>categoryName</th>
+			<th>link</th>
+		</thead>
+		<tbody style="text-align:center;">
+			<tr th:if="${results==0}">
+				<td> 해당 쿼리에 부합하는 도서 결과는 없습니다. 다시 올바르게 검색해주세요</td>
+			</tr>
+			<tr th:each="result: ${results}"> <!-- result: 이름-->
+				<td><span style="font-weight:bold" th:text="*{result.title}">Title</span></td>
+				<td>
+					<img th:src="@{*{result.cover}}" alt="no image/">
+				</td>
+				<td><span th:text="*{result.author}">Author</span></td>
+				<td><span th:text="*{result.pubDate}">Publicshed Date</span></td>
+				<td><span th:text="*{result.priceSales}">Price Sales</span></td>
+				<td><span th:text="*{result.categoryName}">Category Name</span></td>
+				<td><a th:href="*{result.link}">Book Info</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+<script th:src="@{/js/jquery-3.7.0.js}"></script>
+<script th:inline="javascript">
+	
+</script>
+</html>
