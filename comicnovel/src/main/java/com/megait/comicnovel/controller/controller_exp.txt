@@ -1,6 +1,0 @@
-google로그인
-https://mjoo1106.tistory.com/entry/Spring-Google-Login-API-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
-
-https://developers.google.com/identity/protocols/oauth2/web-server?hl=ko#httprest
-
-https://mslilsunshine.tistory.com/171   --- httpServlet을 쓰는게 맘에 안듬

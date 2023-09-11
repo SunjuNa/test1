@@ -16,11 +16,13 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Configuration //Config(설정) 관련 클래스 - bean과 관련있음
 @RequiredArgsConstructor 
+@Slf4j
 //필요한 argument는 알아서 만든다 - final과 관련있음
-@MapperScan("com.megait.board.mapper")
+@MapperScan("com.megait.comicnovel.mapper")
 //에 들어있는거 scan해 주세요
 public class MyBatisConfig {
 	//커넥션 풀 및 MyBatis에 필요한 요소를 메모리에 할당 및 관리
@@ -60,10 +62,13 @@ public class MyBatisConfig {
 		
 		// SQL query를 작성할 xml 경로 설정
 		sfb.setMapperLocations(applicationContext.getResources("classpath*:/mappers/*.xml")); //getResource"S"
+		sfb.setConfigLocation(applicationContext.getResource("classpath:/config/config.xml"));
+		//configlocation은 하나임, 단수
 		//src/main/resources>(mappers,config폴더만들기)> 
 		
 		try {
 			SqlSessionFactory factory = sfb.getObject(); //datasource중 하나를 꺼낸다
+			log.info("sqlsession"+factory.toString());
 			factory.getConfiguration().setMapUnderscoreToCamelCase(true); 
 			//ex) math_score(table, db) > mathScore바꾸는거 허락하시겠습니까? -> yes(true)
 			return factory;

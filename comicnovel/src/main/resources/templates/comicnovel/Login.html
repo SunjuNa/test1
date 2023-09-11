@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>로그인/로그아웃</title>
+<meta charset="UTF-8" name="google-signin-client_id" content="425928107644-nm8n6bl1ap8i7hdtf3fphlt6lhg5cb33.apps.googleusercontent.com">
+<title>회원가입/로그인</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
@@ -67,8 +67,12 @@
 	<!-- Login button -->
 	<section class="fig-1t0xxg6">
 		<div class="fig-ws273d">
-			<a class="btn btn-primary btn-lg btn-block fig-w58liu" style="background-color: rgb(253, 94, 94)" href="#!"
-		            role="button"><i class="bi bi-google"></i>&nbsp; Continue with Google</a><br>
+			<!--<div id="GgCustomLogin">
+				<a class="btn btn-primary btn-lg btn-block fig-w58liu" style="background-color: rgb(253, 94, 94)" href="javascript:void(0)"
+			            role="button"><i class="bi bi-google"></i>&nbsp; Continue with Google</a><br>				
+			</div>-->
+			<a class="btn btn-primary btn-lg btn-block fig-w58liu" style="background-color: rgb(253, 94, 94)" href="/login/google"
+			            role="button"><i class="bi bi-google"></i>&nbsp; Continue with Google</a><br>		
 			<a class="btn btn-primary btn-lg btn-block fig-w58liu" style="background-color: #55acee" href="#!"
 			    role="button"><i class="bi bi-twitter"></i>&nbsp; Continue with Twitter</a><br>
 			<a class="btn btn-primary btn-lg btn-block fig-w58liu" style="background-color: rgb(91, 255, 91)" href="#!"
@@ -77,7 +81,51 @@
 	</section>
 	
 </body>
-<script th:src="@{/js/jquery-3.7.0.js}"></script>
-<script th:inline="javascript">
-</script>
+<!--<script>
+	//
+	function init(){
+		gapi.load('auth2', function(){
+			gapi.auth2.init();
+			options = new gapi.auth2.SigninOptionsBuilder();
+			options.setPrompt('select_account');
+			//추가는 Oauth 승인 권한 추가 후 띄어쓰기 기준으로 추가
+			options.setScope('email profile openid https://www.googleapis.com/auth/user.birthday.read');
+			//인스턴스의 함수 호출 - element에 로그인 기능 추가
+			
+			gapi.auth2.getAuthInstance().attachClickHandler(
+				'GgCustomLogin',
+				options,
+				onSignIn, //자체제작 함수
+				onSignInFailure
+			);
+		})
+	}
+	
+	function onSignIn(googleUser){
+		var access_token = googleUser.getAuthResponse().access_token
+			$.ajax({
+				//people api를 이용하여 프로필 및 생년월일에 대한 선택동의 후 가져온다
+				url: 'http://people.googleapis.com/v1/people/me'
+				//key에 자신의 API키를 넣습니다
+				, data:{
+					personFields:'birthdays', 
+					key: 'AIzaSyBTI-Ikz_sDhfEu4REtriDHp6TmSvzte-s',
+					'access_token': access_token
+					}, method: 'GET'
+			})
+			.done(function(e){
+				//프로필을 가져온다
+				var profile = googleUser.getBasicProfile();
+				console.log(profile);
+			})
+			.fail(function(e){
+				console.log(e);
+			})
+	}
+	function onSignInFailure(t){
+		console.log(t);
+	}
+</script>-->
+<!-- google api 사용을 위한 스크립트-->
+<!--<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>-->
 </html>

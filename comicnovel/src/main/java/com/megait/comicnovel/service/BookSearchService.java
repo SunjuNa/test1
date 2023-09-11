@@ -1,27 +1,17 @@
 package com.megait.comicnovel.service;
 
-import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import org.json.XML;
-import org.springframework.boot.configurationprocessor.json.JSONArray;
 import org.springframework.boot.configurationprocessor.json.JSONException;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.megait.comicnovel.bean.vo.AladinProductDTO;
 import com.megait.comicnovel.bean.vo.AladinReqVarDTO;
 
@@ -65,7 +55,7 @@ public class BookSearchService {
 		 return aladinProductDTOs;
 	}
 	private List<AladinProductDTO> fromXMLtoAladinProduct(String result) throws JSONException{
-		
+		 //여기서 result는 xml코드이다 
 		 //XML을 JSON으로 변환하기
 		 org.json.JSONObject jobj = XML.toJSONObject(result);
 		 

@@ -493,6 +493,97 @@
 		background: url(https://ssl.pstatic.net/sstatic/keypage/outside/scui/cs_common_module/img/btn_arr_big.png) no-repeat;
 		background-size: 48px 48px;
 	}
+	.fig-1tioo97{
+		display: flex;
+		-webkit-box-paxk: justify;
+		justify-content: space-between;
+		-webkit-box-flex-wrap: wrap;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		padding: 0 16px;
+		padding-top: 35px;
+		margin-bottom: 15px;
+		border-top: 1px solid lightgray;
+		display: flex;
+		flex-direction: row;
+	}
+	.fig-thdhc7{
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		padding: 0 4px;
+	}
+	.fig-xe94hj{
+		display: flex;
+		width: 185px;
+		display: inline-flex;
+		-webkit-box-align: center;
+		align-items: center;
+		font-weight: bold;
+		line-height: 16px;
+		letter-spacing: -0.01em;
+		color: #787878;
+	}
+	.fig-b56pyw{
+		margin-bottom: 20px;
+	}
+	.fig-sx0e5h{
+		color: #787878;
+		font-size: 12px;
+		font-weight: 700;
+		line-height: 14px;
+		letter-spacing: -0.01em;
+		margin-bottom: 10px;
+		padding-left: 3rem;
+	}
+	.fig-1sj8lb3{
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		margin-bottom: 30px;
+	}
+	.fig-xfsekq{
+		color: #787878;
+		font-size: 11px;
+		display:inline-flex;
+		height: 13px;
+		line-height: 13px;
+		letter-spacing: -0.01em;
+	}
+	.fig-pgyxai{
+		margin: 10px 0;
+	}
+	.fig-pgyxai2{
+		margin: 10px 0;
+	}
+	.fig-jh7e4o{
+		font-size: 11px;
+		letter-spacing: -0.01em;
+	}
+	.fig-jh7e4o::before{
+		content: '';
+		display: inline-block;
+		background:#f0f0f0;
+		width:1px;
+		height: 9px;
+		margin: 2px 6px;
+	}
+	.fig-xfsekq::before{
+		content: '';
+		display:inline-block;
+		background: #f0f0f0;
+		width: 1px;
+		height: 9px;
+		margin: 2px 6px;
+	}
+	.fig-pgyxai2::before{
+		content:'';
+		display:inline-block;
+		background: #f0f0f0;
+		width: 1px;
+		 height: 9px;
+		 margin: 2px 6px;
+	}
 </style>
 </head>
 <body class="w3-white">
@@ -504,23 +595,29 @@
 		<div style="width:80%;margin:0 auto;">
 		        <a href="#" class="w3-bar-item w3-button">웹툰/만화</a>
 		        <a href="#" class="w3-bar-item w3-button">웹소설</a>
-		        <a href="#" class="w3-bar-item w3-button">도서</a>
-		        <a href="/comicnovel/Login" class="w3-bar-item w3-button w3-right">로그인</a> 
-		        <a href="/comicnovel/Login" class="w3-bar-item w3-button w3-right">
+		        <a href="#" class="w3-bar-item w3-button">도서</a>	
+		        <a th:if="${userVO!=null}" name="email" id="email" th:text="*{userVO.nickname}" href="/comicnovel/MyPage" class="w3-bar-item w3-button w3-right"></a> 
+		        <!--th:href를 하면 오류가 난다, 아마도 th 결과문은 하나만 쓸수있나보다 -->
+		        <a th:unless="${userVO!=null}" href="/comicnovel/Login" name="email2" id="email2" class="w3-bar-item w3-button w3-right" th:text="로그인">로그인</a>
+		
+		 		<div class="w3-bar-item w3-right">
 					<div class="form-check form-switch form-check-reverse">
-  						<input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
+  						<input th:if="${userVO!=null}" th:checked="*{userVO.adultYN!='n'}" class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
   							<label class="form-check-label" for="flexSwitchCheckReverse" style="color: red">19금</label>
+  						<input th:unless="${userVO!=null}" class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
 					</div>
-				</a> 
+				</div>
 	    </div>
 	</div>
+	
+	
 	<!-- Navigation bar with social media icons -->
 	<div style="width:80%;margin:0 auto;">
 	    <div class="w3-bar w3-white w3-hide-small">
 	        <a href="#" class="w3-bar-item w3-button"><strong>ComicNovel</strong></a>
 	        <!-- <a href="#" class="w3-bar-item w3-button"><i class="fa fa-facebook-official"></i></a> -->
 	        <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-list"></i></a>
-	        <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-person"></i></a>
+	       <!-- <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-person"></i></a>-->
 	        <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-book"></i></a>
 	        <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-bell"></i></a>
 	   <!--     <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-cart"></i></a>-->
@@ -1025,10 +1122,26 @@
 		<br>
 		<br>
 		
-		<footer>
-			<h3>고객센터가 있으니까 고통받느거야</h3>
-		</footer>
 		</div>
+		<footer class="fig-y6qu7h">
+			<div class="fig-u74er3">
+				<div class="fig-1tioo97">
+					<ul class="fig-xe94hj">
+						<li class="fig-pgyxai">고객센터</li>
+						<li class="fig-pgyxai2">공지사항</li>
+					</ul>
+				</div>
+			</div>
+			<div class="fig-b56pyw">
+				<div class="fig-sx0e5h">comicnovel 사업자정보</div>
+				<ul class="fig-1sj8lb3">
+					<li class="fig-xfsekq">이용약관</li>
+					<li class="fig-jh7e4o">개인정보 처리방침</li>
+					<li class="fig-xfsekq">청소년보호정책</li>
+					<li class="fig-xfsekq">사업자정보확인</li>
+				</ul>
+			</div>
+		</footer>
 </body>
 <script th:src="@{/js/jquery-3.7.0.js}"></script>
 <script th:inline="javascript">
@@ -1064,5 +1177,9 @@
 		}
 	})
 	
+	var check = $("input[type='checkbox']");
+	check.click(function(){
+		location.href="/comicnovel/Verify19";
+	});
 </script>
 </html>

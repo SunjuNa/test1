@@ -1,0 +1,58 @@
+google로그인
+https://mjoo1106.tistory.com/entry/Spring-Google-Login-API-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+
+https://developers.google.com/identity/protocols/oauth2/web-server?hl=ko#httprest
+
+https://mslilsunshine.tistory.com/171   --- httpServlet을 쓰는게 맘에 안듬
+
+https://2bmw3.tistory.com/24
+https://mjoo1106.tistory.com/entry/Spring-Google-Login-API-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+
+https://green-bin.tistory.com/27
+
+https://antdev.tistory.com/69
+
+https://www.daleseo.com/google-oauth/
+
+
+사용자정보 가져오기
+https://lotuus.tistory.com/79
+
+https://dev-coco.tistory.com/128
+
+https://velog.io/@usreon/google-%EC%86%8C%EC%85%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EC%82%BD%EC%A7%88-%EA%B3%BC%EC%A0%95
+
+https://tyrannocoding.tistory.com/51
+
+시큐리티 키?????
+https://stackoverflow.com/questions/30761253/remove-using-default-security-password-on-spring-boot
+
+FeignClient[페인클라이언트]
+https://wildeveloperetrain.tistory.com/172
+
+https://marrrang.tistory.com/81
+
+redirect시 parameter값을 전달하고 싶을 때
+https://sjparkk-dev1og.tistory.com/35
+https://ynzu-dev.tistory.com/entry/Web-redirect%EC%8B%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EB%8B%AC%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95-RedirectAttributes
+https://sendthesignal.tistory.com/
+
+thymeleaf에서 session값 꺼내기
+https://ohju.tistory.com/1007
+
+의문점
+resttemplate이란
+httpServletRequest이랑 requestEntity랑 무슨차이일까
+httpServletResponse랑 responseEntity랑 무슨차이일까
+
+url과 uri는 다르다
+
+uricomponentbuilder와 httpservletRequest를 사용한 uri만들기는 뭐가 다른가
+
+requestmapping은 /를 붙이고 getmapping은 /를 붙이지 않는다
+
+Service단계에서 uri를 뺴서 api를 호출하여 데이터를 가져오는 거랑, controller에서 호출하는 것 어느쪽이 더 바람직한가
+
+postEntity?????
+
+restTemplate?
