@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>People API Quickstart</title>
+    <meta charset="utf-8" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+ <style>
+	.fig-np6jjt{border-bottom: 1px solid #D6DEEB;}
+	.fig-2n3gzu{
+		text-align: center;
+		margin: 0;
+		font-size: 12px;
+		line-height: 1em;
+	}
+	a:link, a:visited{
+		text-decoration: none; 
+		color: black;
+	}
+	.fig-1231kui{
+		display:inline-flex;
+		-webkit-box-pack:center;
+		justify-content: center;
+		align-items: center;
+		font-size:13px;
+		height: 40px;
+		padding: 0 14px;
+	}
+	.fig-1t0xxg6{
+		position:relative;
+		max-width: 360px;
+		margin: 0 auto;
+		padding: 60 0 70px;
+	}
+	.fig-ws273d{padding: 24px 10px;}
+	.fig-w58liu{
+		display:block;
+		position: relative;
+		width: 100%;
+		height: 50px;
+		padding: 14px 18px;
+		overflow: hidden;
+		margin-bottom: -1px;
+		font-size: 15px;
+		font-weight: 700px;
+		line-height: normal;
+		border: 1px solid gray;
+	}
+	.popup_contents{
+		position:absolute;
+		top:0;right:0; left:0;bottom:33px;
+		z-index:-1;
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		margin: 0 auto;
+		max-width: 500px;
+	}
+	.popup_contents_descritpion{
+		font-weight: 400;
+		font-size: 16px;
+		line-height:24px;
+		margin-top:6px;
+		text-align: center;
+		letter-spacing: -.03em;
+		color: #787878;
+	}
+	.popup_contents_button{
+		border-radius:100px;
+	}
+</style>
+  <body>
+    <!-- header -->
+	<header class="fig-np6jjt">
+		<div class="fig-2n3gzu">
+			<a href="/comicnovel/home" class="fig-1231kui"><strong>ComicNovel</strong></a>
+		</div>
+	</header>
+
+    <!--Add buttons to initiate auth sequence and sign out-->
+    <div class="popup_contents">
+		<p class="popup_contents_description">
+			작품 감상을 위해 성인인증이 필요합니다.
+			<br>
+			성인인증 후 이용해주세요
+		</p>
+	    <button class="popup_contents_button" id="authorize_button" onclick="handleAuthClick()">성인인증</button>
+	    <button class="popup_contents_button" id="signout_button" onclick="handleSignoutClick()">홈으로</button>
+	</div>
+	
+	<form action="/CheckOK" method="post">
+	    <input id="content" type="hidden" name="birthday_year"></input>
+	    <input id="userEmail" type="hidden" name="userEmail"></input>
+	    <input type="submit" id="OKinput">
+	</form>
+
+    <script type="text/javascript">
+	document.getElementById("OKinput").style.visibility="hidden";
+      /* exported gapiLoaded */
+      /* exported gisLoaded */
+      /* exported handleAuthClick */
+      /* exported handleSignoutClick */
+
+      // TODO(developer): Set to client ID and API key from the Developer Console
+      const CLIENT_ID = '425928107644-nm8n6bl1ap8i7hdtf3fphlt6lhg5cb33.apps.googleusercontent.com';
+      const API_KEY = 'AIzaSyAPjK1BXPUlmUz1YVFfl4fkhsF9sU2dOe0';
+
+
+      // Discovery doc URL for APIs used by the quickstart
+      const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/people/v1/rest';
+
+      // Authorization scopes required by the API; multiple scopes can be
+      // included, separated by spaces.
+      const SCOPES = 'https://www.googleapis.com/auth/userinfo.profile';
+
+      let tokenClient;
+      let gapiInited = false;
+      let gisInited = false;
+
+      document.getElementById('authorize_button').style.visibility = 'hidden';
+      document.getElementById('signout_button').style.visibility = 'hidden';
+
+      /**
+       * Callback after api.js is loaded.
+       */
+      function gapiLoaded() {
+        gapi.load('client', initializeGapiClient);
+      }
+
+      /**
+       * Callback after the API client is loaded. Loads the
+       * discovery doc to initialize the API.
+       */
+      async function initializeGapiClient() {
+        await gapi.client.init({
+          apiKey: API_KEY,
+          discoveryDocs: [DISCOVERY_DOC],
+        });
+        gapiInited = true;
+        maybeEnableButtons();
+      }
+
+      /**
+       * Callback after Google Identity Services are loaded.
+       */
+      function gisLoaded() {
+        tokenClient = google.accounts.oauth2.initTokenClient({
+          client_id: CLIENT_ID,
+          scope: SCOPES,
+          callback: '', // defined later
+        });
+        gisInited = true;
+        maybeEnableButtons();
+      }
+
+      /**
+       * Enables user interaction after all libraries are loaded.
+       */
+      function maybeEnableButtons() {
+        if (gapiInited && gisInited) {
+          document.getElementById('authorize_button').style.visibility = 'visible';
+        }
+      }
+
+      /**
+       *  Sign in the user upon button click.
+       */
+      function handleAuthClick() {
+        tokenClient.callback = async (resp) => {
+          if (resp.error !== undefined) {
+            throw (resp);
+          }
+          document.getElementById('signout_button').style.visibility = 'visible';
+          document.getElementById('authorize_button').innerText = 'hidden';//
+          await listConnectionNames();
+        };
+
+        if (gapi.client.getToken() === null) {
+          // Prompt the user to select a Google Account and ask for consent to share their data
+          // when establishing a new session.
+          tokenClient.requestAccessToken({prompt: 'consent'});
+        } else {
+          // Skip display of account chooser and consent dialog for an existing session.
+          tokenClient.requestAccessToken({prompt: ''});
+        }
+      }
+
+      /**
+       *  Sign out the user upon button click.
+       */
+      function handleSignoutClick() {
+        const token = gapi.client.getToken();
+        if (token !== null) {
+          google.accounts.oauth2.revoke(token.access_token);
+          gapi.client.setToken('');
+          document.getElementById('content').innerText = '';
+          document.getElementById('authorize_button').innerText = 'Authorize';
+          document.getElementById('signout_button').style.visibility = 'hidden';
+          document.getElementById('signout_button').onclick=function(){
+			  location.href="/comicnovel/home";
+		  }
+        }
+      }
+
+      /**
+       * Print the display name if available for 10 connections.
+       */
+      async function listConnectionNames() {
+        let response;
+        try {
+          // Fetch first 10 files
+          response = await gapi.client.people.people.get({
+            'resourceName': 'people/me',
+            'personFields': 'birthdays,emailAddresses',
+          });
+        } catch (err) {
+          document.getElementById('content').innerText = err.message;
+          return;
+        }
+        const birthdays = response.result.birthdays;
+        const emailAddresses = response.result.emailAddresses;
+        if (!birthdays || birthdays.length == 0) {
+          document.getElementById('content').innerText = 'No connections found.';
+          return;
+        }
+        // Flatten to string to display
+        const output = birthdays.reduce(
+            (str, birthdays) => {
+              if (!birthdays.date || birthdays.date.length === 0) {
+                return `${str}Missing display birthday\n`;
+              }
+              return `${birthdays.date.year}`;
+            },
+            'Connections:\n');
+        const userEmail = emailAddresses.reduce(
+			(str, emailAddresses) =>{
+				if(!emailAddresses.value || emailAddresses.value.length===0){
+					return `${str}Missing display email/n`;
+				}
+				return `${emailAddresses.value}`;
+			}
+		)
+        console.log("생년은"+output);
+        console.log("이메일은"+userEmail);
+        document.getElementById('content').value=Number(output);
+        document.getElementById('userEmail').value=userEmail;
+        document.getElementById('OKinput').click();
+      }
+    </script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+  </body>
+</html>

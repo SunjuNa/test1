@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.megait.comicnovel.mapper.UserMapper">
+	<select id="getList" resultType="userVO">
+		SELECT * FROM comicnovel_member 
+	</select>
+	<select id="getUserByEmail" resultType="userVO">
+		SELECT * 
+		FROM comicnovel_member
+		WHERE userEmail = #{userEmail} 
+	</select>
+	<insert id="insertUser"> 
+		INSERT INTO comicnovel_member(uno, userEmail, nickname, adultYN) 
+		VALUES (NEXTVAL(seq_comicnovel_member), #{userEmail}, #{nickname}, #{adultYN}) 
+	</insert>
+	<insert id="insertCheck19">
+		INSERT INTO comicnovel_member(adultYN)
+		VALUES (#{adultYN})
+	</insert>
+	<delete id="delete">
+		DELETE FROM comicnovel_member WHERE uno=#{uno}
+	</delete>
+	<update id="update">
+		UPDATE comicnovel_member
+		SET 	userEmail = #{userEmail}, nickname=#{nickname}
+				,adultYN=#{adultYN}
+		WHERE uno = #{uno} 
+	</update>
+</mapper>
