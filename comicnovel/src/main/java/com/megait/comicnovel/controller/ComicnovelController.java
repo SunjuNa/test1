@@ -50,7 +50,7 @@ public class ComicnovelController {
 		//알라딘 신작리스트 
 		log.info("newBook collection is here");
 		AladinNewBookReqDTO newBookreqDTO = AladinNewBookReqDTO.builder()
-			 	.ttbkey("ttbnasnju1839001")
+			 	.ttbkey("")
 				.QueryType("ItemNewAll")
 				.MaxResults(20)
 				.start(1)
@@ -71,7 +71,7 @@ public class ComicnovelController {
 		 model.addAttribute("newbookRes", results);
 		 
 		 AladinNewBookReqDTO editorreqDTO = AladinNewBookReqDTO.builder()
-				 	.ttbkey("ttbnasnju1839001")
+				 	.ttbkey("")
 					.QueryType("Bestseller")
 					.MaxResults(20)
 					.start(1)
@@ -92,7 +92,7 @@ public class ComicnovelController {
 		 model.addAttribute("editorRes", editorresults);
 		 //베너용으로 하나 추가
 		 AladinNewBookReqDTO coverimagereqDTO2 = AladinNewBookReqDTO.builder()
-				 	.ttbkey("ttbnasnju1839001")
+				 	.ttbkey("")
 					.QueryType("Bestseller")
 					.MaxResults(20)
 					.start(1)
@@ -164,7 +164,7 @@ public class ComicnovelController {
 		 
 		 //알라딘 상품 검색 기능
 		 AladinReqVarDTO aladinReqVarDTO = AladinReqVarDTO.builder()
-				 	.ttbkey("ttbnasnju1839001")
+				 	.ttbkey("")
 					.Query(query) //input name이 query여야 query가 들어간다
 					.QueryType("Keyword")
 					.MaxResults(10)
@@ -201,7 +201,7 @@ public class ComicnovelController {
 //		 log.info("--------------------");
 //		 
 //		 AladinNewBookReqDTO newBookreqDTO = AladinNewBookReqDTO.builder()
-//				 	.ttbkey("ttbnasnju1839001")
+//				 	.ttbkey("")
 //					.QueryType("ItemNewAll")
 //					.MaxResults(10)
 //					.start(1)
