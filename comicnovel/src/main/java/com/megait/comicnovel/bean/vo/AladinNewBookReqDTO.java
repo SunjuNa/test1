@@ -12,5 +12,7 @@ public class AladinNewBookReqDTO {
 	Integer start;
 	String SearchTarget;
 	String output;
+	String Cover;
 	Integer Version;
+	Integer CategoryId;
 }

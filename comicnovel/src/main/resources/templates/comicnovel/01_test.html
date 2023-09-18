@@ -1,10 +1,681 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>개인 프로젝트</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+    span{letter-spacing: -0.03em;}
+    body {font-family: "Open Sans"}
+    [type=button],button{-webkit-appearance: button;}
+    button{letter-spacing:-0.03em;user-select: none; }
+    button,input{overflow:visible;}
+    button,input,optgroup, select,textarea{line-height:1.15;}
+    img{border-style: none;}
+    i{vertical-align: -3px;}
+    #query{
+        outline: none;
+        border:none;
+        background-color:transparent;
+    }
+    #label1{
+        border: 1px solid rgba(0, 0, 0, 0.5%);
+        border-radius:8px;
+    }
+    #span1{
+        vertical-align: 3px;
+    }
+    .section_quick{max-width: 1170px;padding-left:30px; padding-right:30px; margin:0 auto; margin-top:30px;
+    box-sizing:border-box;}
+    .welcome_quick{
+		display:flex;
+		flex-direction:row;
+		justify-content: center;
+		margin:0 auto;
+	}
+	ul{list-style: none;}
+	li{text-align: center; line-height: initial; list-style:none;}
+	.fig-121e341{display:inline-block; flex:none; margin: 0 5%;}
+	.fig-121e341:first-of-type{margin-left:0;}
+	.fig-121e341:last-of-type{margin-right:0;}
+	.circlediv{background-color: rgb(238, 238, 238); border-radius:50%; padding: 10px}
+	.fig-162.cejl{position: relative; width:100%; height:0; padding-bottom: 100%; overflow: hidden;}
+	.fig-ih559y{font-weight: 500; font-size: 15px; line-height: 16px; text-align: center; word-break: keep-all; color: #141414;}
+	a{text-decoration-line: none; color: black; letter-spacing:inherit; cursor:pointer;}
+	@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+	
+	.nanumgothic * {
+	 font-family: 'Nanum Gothic', sans-serif;
+	}
+	.fig-1gqrqi3{
+		color: #a5a5a5;
+		letter-spacing:-0.01em;
+		font-size: 16px;
+		font-weight:500;
+		line-height:19px;
+	}
+	.fig-ehftam{
+		font-size: 22px;
+		font-weight: 700;
+		line-height: 26px;
+		letter-spacing: -0.01em;
+		color: #141414;
+		min-width:0px;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+	}
+	h2{
+		display:block;
+		margin-block-start: 0.83em;
+		margin-block-end:0.83em;
+		margin-inline-start:0px;
+		margin-inline-end:0px;
+	}
+	.fig-1fg9bka{
+		height: 48px;
+		padding-top:6px;
+		padding-bottom: 16px;
+	}
+	.fig-ajrifm{
+		max-width:1170px;
+		padding-left:30px;
+		padding-right:30px;
+		margin-top: 40px;
+	}
+	.fig-za0kxg{
+		display:flex;
+		flex-shrink:0;
+		align-items:center;
+	}
+	.fig-42m2oi{
+		display:flex;
+		-webkit-box-pack: justify;
+		-webkit-justify-content:space-between;
+		justify-content: space-between;
+		width: 100%;
+		height: 100%;
+	}
+	.fig-f794wb{
+		display:flex;
+		-webkit-align-items:center;
+		-webkit-box-align:center;
+		align-items:center;
+		min-width:0px;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		margin-top:-2px;
+	}
+	.fig-1ut9of1{position:relative;}
+	.fig-1xbvbgj{overflow:-moz-scrollbars-none;}
+	.fig-1xbvbgj{
+		display:flex;
+		flex-wrap:nowrap;
+		overflow-x:auto;
+		overflow-y:hidden;
+	}
+	.fig-1xbvbgj::-webkit-scrollbar{
+		display:none;
+	}
+	.fig-1mshoyj{
+		-webkit-flex:none;
+		flex:none;
+		width:1px;
+		margin-right:-1px;
+	}
+	.fug01292vv4{display:flex; flex:1 0 auto;}
+	.fig-1hm8916{display:flex;
+	margin:0; padding:0;
+	transition-duration: 1.5s;
+	}
+	.fig-37eeed{margin-right:6px;}
+	@media(min-width:768px){.fig-1ihiauq{width: 180px;}}
+	.fig-1lihiauq{
+		position:relative;
+		display:flex;
+		flex-direction:column;
+		align-items:flex-start;
+	}
+	@media(min-width:768px){.fig-rv5u3n{padding-bottom:145%;}}
+	.fig-rv5u3n{
+		position:relative; align-self:stretch;
+	}
+	.fig-13606cb{
+		display:block;
+		-webkit-mask-image:-webkit-radial-gradient(center, white, black);
+		position:absolute;
+		bottom:0px;left:0px;right:0px;max-height:100%;
+		border-radius:4px;
+		overflow:hidden;
+	}
+	@media(min-width:768px){.fig-mhv707{padding-bottom:145%;}}
+	@media(min-width:768px){.fig-mhv707{width:100%; height:auto;}}
+	.fig-mhv707{position:relative;}
+	.fig-mhv707::before{
+		content:"";
+		display:block;
+		position:absolute;
+		inset: 0px;
+		background: rgb(245, 245, 245);
+	}
+	.fig-mhv707::after{
+		content:"";
+		display:block;
+		position:absolute;
+		inset:0px;
+		border:1px solid rgba(20,20,20,0.06);
+		border-radius: 4px;
+	}
+	*::after, *::before{box-sizing:border-box; -webkit-font-smoothing:antialiased;}
+	@media(min-width:768px){.fig-1rhwzqu{width:100%;}}
+	.fig-1rhwzqu{
+		overflow:hidden;
+		position:absolute;
+		top:50%;left:0px;
+		transform:translate(0px, -50%);
+		width:100%;height:100%;
+	}
+	.fig-1rhwzqu::after{
+		content: "";
+		display:block;
+		position:absolute;
+		inset: 0px;
+		background: rgba(0,0,0,0.04);
+	}
+	@supports(object-fit:cover){.fig-cuj771{object-fit:cover; width:100%; height:100%;}}
+	.fig-cuj771{
+		display:block;
+		opacity:0;
+		position:absolute;
+		top:50%;left:50%;
+		transform:translate(-50%,-50%);
+	}
+	@media(min-width:768px){.fig-isc2cu5{top: 6px; right:6px; font-size:24px}}
+	.fig-isc2u5{transform: translate(0px, 0.5px); position:absolute; color-scheme: light only; font-size: 20px; top: 4px; right: 4px;}
+	@media(min-width:768px){.fig-3h0c1x{padding-right:10px;margin-top:10px;}}
+	.fig-3h0c1x{width: 100%; min-height:84px;}
+	@media(min-width:768px){.fig-uehc9v{display:-webkit-box;-webkit-box-orient: vertical; overflow:hidden; text-overflow:ellipsis; overflow-wrap:break-word; white-space:normal; max-height: calc(38px);line-height:19px; word-break:break-all; }}
+	@media(min-width:768px){.fig-uehc9v{font-size:16px;}}
+	.fig-uehc9v{font-weight:500; color: rgb(20, 20, 20); letter-spacing: -0.01em;}
+	.fig-ljwdvr{display:flex; flex-direction:column;}
+	@media(min-width:786px){.fig-gznpwu{line-height:17px;}}
+	@media(min-width:786px){.fig-gznpwu{font-size:14px;}}
+	.fig-gznpwu{
+		overflow-wrap:break-word;
+		color: rgb(120,120,120);
+		letter-spacing: -0.01em;
+		display:block;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		margin-top: 6px;
+	}
+	.fig-ljwdvr>*{
+		position:relative;
+		-webkit-box-align:center;
+	}
+	@media(min-width:768px){.fig-p48jup{line-height:16px;}}
+	@media(min-width:768px){.fig-p48jup{font-size:13px;}}
+	.fig-p48jup{
+		overflow-wrap:break-word;
+		letter-spacing:-0.01em;
+		display:flex;
+		color:rgb(220,50,50);
+		margin-top:7px;
+	}
+	.fig-poe9hb{
+		margin: 3px 2px 2px 0px;
+		color: rgb(220,50,50);
+		fong-size: 11px;
+	}
+	.fig-hn9uxh{
+		margin-left:1px;
+		color:rgb(120,120,120);
+	}
+	.fig-mtev7j{
+		flex:none;
+		width:1px;
+		margin-left:-1px;
+	}
+	.fig-csxb2z{
+		position:absolute;
+		top:0;left:0; height:100%;display:flex;
+		-webkit-box-pack:justify;
+		justify-content:space-between;
+		-webkit-box-align:center;
+		width:calc(100% + 40px); /* 사이 공백 주의 */
+		padding:0;
+		margin: 0 -20px;
+		align-items:flex-start;
+	}
+	.fig-1202vv4{
+		width: 1800px;
+	}
+	.fig-2zbaqo[disabled]{opacity:0; pointer-events:none;}
+	.fig-csxb2z>button{margin-top:110px;}
+	.fig-2zbaqo{
+		display:inline-flex;
+		-webkit-box-pack:center;
+		justify-content: center;
+		-webkit-box-align:center;
+		align-items:center;
+		width:40px;
+		height:40px;
+		cursor: pointer;
+		background:#ffffff;
+		box-shadow:2px 4px 8px rgba(0,0,0,0.06);
+		border-radius:50%;
+		border:1px solid #f0f0f0;
+		transition: opacity 0.2s ease, color 0.2s ease, pointer-events 0.2s ease;
+		color: #141414;
+		font-size:16px;
+	}
+	.fig-1dpp2x{
+		display:flex;
+		-webkit-box-align:center; 
+		align-items:center; 
+		-webkit-box-pack:center;
+		justify-content: center; 
+		transform:rotate(180deg);
+	}
+	.fig-14hy28z{
+		position:relative; width:1px; height:1px; margin:-1px; padding:0px; overflow:hidden; border:0; clip:rect(0,0,0,0);
+	}
+	.fig-d85ps1{display:flex; -webkit-box-align: center; align-items: center; -webkit-box-pack: center; justify-content: center;}
+	.cm_pure_box{
+		background-color: #fff;
+		border: solid 1px #e8ebee;
+		border-radius: 5px;
+		box-shadow: 0 1px 1px 0 rgba(0,0,0,0.03);
+	}
+	.lego_title_tab_outer{
+		display: flex;
+		position: relative;
+		padding: 16px 20px 9px;
+		justify-content: space-between;
+		align-items:center;
+	}
+	.area_title_tab_bar{
+		font-size: 0;
+		line-height: 0;
+		-webkit-overflow-scrolling: touch;
+		overflow: hidden;
+		overflow-x: auto;
+		white-space: nowrap;
+		display: block;
+		margin-bottom: 0 !important;
+	}
+	.area_title_tab_bar li{
+		display: inline-block;
+		position: relative;
+		color: gray;
+		vertical-align:top;
+		text-align: -webkit-match-parent;
+	}
+	.enjoy_tab{
+		font-weight: bold;
+		color: #202020;
+		font-size: 1.5rem;
+		line-height: 2.2rem;
+		letter-spacing: -0.16px;
+	}
+	.area_more_tab{
+		display: block;
+		margin: -4px -9px 0 6px;
+		padding: 6px 8px;
+	}
+	.area_inner{
+		display: inline-block;
+		overflow: hidden;
+		vertical-align: top;
+		color: transparent;
+		width: 13px;
+		height: 11px;
+	}
+	.area_scroll_wrap{
+		position: relative;
+		margin: 0;
+		padding: 1px 0 17px 0;
+		display: block;
+	}
+	.type_scroll{
+		position: relative;
+		padding: 1px 0 4px;
+		overflow: hidden;
+		overflow-x: scroll;
+	}
+	.type_scroll::-webkit-scrollbar{
+		display:none;
+	}
+	.area_scroll_ulist{
+		font-size: 0;
+		line-height: 0;
+		white-space: nowrap;
+		list-style-type: none;
+	}
+	.area_link{
+		display: block;
+		text-decoration: none;
+	}
+	.lego_intro_rating{
+		position: relative;
+		width: 192px;
+		min-height: 224px;
+		padding: 0 18px 10px 18px;
+		box-sizing: border-box;
+		white-space: normal;
+	}
+	.area_design_top{
+		display: flex;
+		padding: 21px 0 47px 0;
+	}
+	.this_design_ddaum{
+		display: inline-block;
+		overflow: hidden;
+		background: url("https://ssl.pstatic.net/sstatic/keypage/outside/scui/cs_common_module/img/sp_common_module_new_v02.png") no-repeat;
+		background-size: 200px 600px;
+		vertical-align: top;
+		color: transparent;
+		width: 30px;
+		height: 27px;
+		background-position: -92px -20px;
+		flex-shrink: 0;
+	}
+	.this_design_line{
+		display: block;
+		height: 2px;
+		margin: 0 0 9px 6px;
+		border-radius: 1px;
+		background-color: rgba(216, 221, 226, 0.5);
+		flex-grow: 1;
+		align-self: flex-end;
+	}
+	.lego_movie_pure_star{
+		font-size: 0;
+		line-height: 0;
+	}
+	.are_icon_box{
+		display:inline-block;
+		margin: 0 6px 0 0 ;
+		vertical-align: middle;
+	}
+	.area_card:first-child{
+		margin-left: 0;
+	}
+	.area_icon_box>.area_card{
+		display: inline-block;
+		margin: 0 0 0 1px;
+		vertical-align: top;
+	}
+	.area_text_box{
+		display:inline-block;
+		font-size: 1.3rem;
+		line-height: 2rem;
+		font-weight: bold;
+		color: #202020;
+		vertical-align: middle;
+	}
+	.area_text_box_ell{
+		overflow: hidden;
+		margin: 9px 0 0 0;
+		height: 60px;
+		font-size: 1.3rem;
+		line-height: 2rem;
+		color: #404040;
+	}
+	.area_dlist_info{margin: 6px 0 0 0;}
+	dl{
+		display:block;
+		margin-block-start: 1em;
+		margin-block-end: 1em;
+		margin-inline-start: 0px;
+		margin-inline-end: 0px;
+	}
+	.blind{
+		overflow: hidden !important;
+		position: absolute !important;
+		width: 1px !important;
+		height: 1px !important;
+		margin: -1px !important;
+		clip: rect(0 0 0 0) !important;
+	}
+	dt{display: block;}
+	.type_ell{
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space:nowrap;
+	}
+	.area_dlist_info[class='this_text']{
+		font-size: 1.3rem;
+		line-height: 2rem;
+		letter-spacing: 0;
+		color: gray;
+	}
+	dd{display:block; margin-inline-start: 40px;}
+	.pre_visual{
+		position: absolute;
+		top: 50%;
+		left: -24px;
+		margin-top: -24px;
+		overflow: hidden;
+		width: 48px;
+		height: 48px;
+		line-height: 0;
+		color: transparent;
+		z-index: 100;
+		background: url(https://ssl.pstatic.net/sstatic/keypage/outside/scui/cs_common_module/img/btn_arr_big.png) no-repeat;
+		background-size: 48px 48px;
+	}
+	.next_visual{
+		left: auto;
+		right: -24px;
+		transform: scaleX(-1);
+		position: absolute;
+		top: 50%;
+		margin-top: -24px;
+		overflow: hidden;
+		width: 48px;
+		height: 48px;
+		line-height: 0;
+		color: transparent;
+		z-index: 100;
+		background: url(https://ssl.pstatic.net/sstatic/keypage/outside/scui/cs_common_module/img/btn_arr_big.png) no-repeat;
+		background-size: 48px 48px;
+	}
+	.fig-1tioo97{
+		display: flex;
+		-webkit-box-paxk: justify;
+		justify-content: space-between;
+		-webkit-box-flex-wrap: wrap;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		padding: 0 16px;
+		padding-top: 35px;
+		margin-bottom: 15px;
+		border-top: 1px solid lightgray;
+		display: flex;
+		flex-direction: row;
+	}
+	.fig-thdhc7{
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		padding: 0 4px;
+	}
+	.fig-xe94hj{
+		display: flex;
+		width: 185px;
+		display: inline-flex;
+		-webkit-box-align: center;
+		align-items: center;
+		font-weight: bold;
+		line-height: 16px;
+		letter-spacing: -0.01em;
+		color: #787878;
+	}
+	.fig-b56pyw{
+		margin-bottom: 20px;
+	}
+	.fig-sx0e5h{
+		color: #787878;
+		font-size: 12px;
+		font-weight: 700;
+		line-height: 14px;
+		letter-spacing: -0.01em;
+		margin-bottom: 10px;
+		padding-left: 3rem;
+	}
+	.fig-1sj8lb3{
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		margin-bottom: 30px;
+	}
+	.fig-xfsekq{
+		color: #787878;
+		font-size: 11px;
+		display:inline-flex;
+		height: 13px;
+		line-height: 13px;
+		letter-spacing: -0.01em;
+	}
+	.fig-pgyxai{
+		margin: 10px 0;
+	}
+	.fig-pgyxai2{
+		margin: 10px 0;
+	}
+	.fig-jh7e4o{
+		font-size: 11px;
+		letter-spacing: -0.01em;
+	}
+	.fig-jh7e4o::before{
+		content: '';
+		display: inline-block;
+		background:#f0f0f0;
+		width:1px;
+		height: 9px;
+		margin: 2px 6px;
+	}
+	.fig-xfsekq::before{
+		content: '';
+		display:inline-block;
+		background: #f0f0f0;
+		width: 1px;
+		height: 9px;
+		margin: 2px 6px;
+	}
+	.fig-pgyxai2::before{
+		content:'';
+		display:inline-block;
+		background: #f0f0f0;
+		width: 1px;
+		 height: 9px;
+		 margin: 2px 6px;
+	}
+	.newbook_box{
+		width: 250px;
+		margin: 0 auto;
+	}
+	.newbook_slide{
+		width: 250px; height: 333px;
+		overflow: hidden;
+	}
+	.newbook_images{
+		display: flex;
+		height: 350px;
+		transition : transform 0.5s;
+	}
+	.image_newbook{
+		width:250px; height: 333px; 
+		/* slide 크기에 맞춤 */
+	}
+	.newbook_prev{
+		position:relative;
+		bottom:170px; right: 35px;
+	}
+	.newbook_next{
+		position: relative;
+		bottom: 170px; left:220px;
+	}
+	.newbook_button{
+		width:30px; height: 30px;
+		color: white;
+		background:#646464;
+	}
+	.newbook_button:active{
+		background:#3e3e3e;
+	}
+	.newbook_button:disabled{
+		background:#cbcaca;
+	}
+</style>
 </head>
 <body>
-	test01 is now approaching
+	신작컬렉션
+	<div class="fig-1ut9of1">
+			<div class="fig-1xbvbgj">
+				<div class="fig-1mshoyj"></div>
+				<div class="fig-1202vv4">
+					<ul class="fig-1hm8916">
+						<ul  > /* th:each="newbook: ${newbookRes}"*/
+							<li class="fig-37eeed">
+								<div class="fig-1ihiauq">
+									<div class="fig-rv5u3n">
+										<a class="fig-13606cb" > /*  th:href="*{newbook.link}" */ //
+											<div class="fig-mhv707">
+												<div class="fig-1rhwzqu">
+													<img class="fig-cuj771" alt="no image/"> /*  th:src="@{*{newbook.cover}}" */
+												</div>
+											</div>
+											<svg  width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="19세 미만 구독불가" class="fig-isc2u5"><circle cx="12" cy="12" r="12" fill="#fff"></circle><path opacity="0.8" d="M.5 12a11.5 11.5 0 1023 0 11.5 11.5 0 10-23 0" stroke="#DC3232"></path><g clip-path="url(#BadgeAdult_svg__clip0_7220_94960)"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.567 10.677c0-1.547 1.19-2.677 2.86-2.677C16.07 8 17.5 9.156 17.5 11.902v.01C17.5 14.48 16.331 16 14.395 16c-1.414 0-2.47-.829-2.716-1.996l-.011-.058h1.355l.016.053c.203.533.678.882 1.356.882 1.222 0 1.739-1.183 1.798-2.64l.002-.088.003-.087h-.107c-.282.602-.955 1.135-2.011 1.135-1.478 0-2.513-1.066-2.513-2.513v-.01zm1.344-.037c0 .882.635 1.516 1.51 1.516.87 0 1.537-.623 1.537-1.484v-.01c0-.872-.667-1.553-1.52-1.553-.85 0-1.527.67-1.527 1.52v.011zm-3.028 5.17H8.506V9.531h-.09L6.5 10.873V9.589L8.512 8.19h1.37v7.62z" fill="#000"></path></g><defs><clipPath id="BadgeAdult_svg__clip0_7220_94960"><path fill="#fff" transform="translate(6 8)" d="M0 0h12v8H0z"></path></clipPath></defs></svg>
+											/* th:if="*{newbook.adult==true}"  */
+										</a>
+									</div>
+									<div class="fig-3h0c1x">
+										<div>
+											<a class="fig-uehc9v">
+												<a  > /* th:href="*{newbook.link}" */
+													<p ></p> /* th:text="*{newbook.title}"  */
+												</a>
+											</a>
+										</div>
+										<div class="fig-ljwdvr">
+											<p class="fig-gznpwu">
+												<p class="fig-176xfvp">
+													<p >작가이름</p> /* th:text="*{newbook.author}"  */
+												</p>
+											</p>
+											<svg width="1em" height="1em" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="구매자 평균 별점" class="fig-poe9hb"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 0l1.812 3.303L11 4.025 8.446 6.759l.459 3.741L5.5 8.903 2.095 10.5l.459-3.74L0 4.002l3.688-.7L5.5 0z" fill="currentColor"></path></svg>
+											<p class="fig-p48jup">
+													<p > /* th:text="*{newbook.customerReviewRank}" */
+														평점수
+													</p>
+											</p>
+										</div>
+										</div>
+									<a href="" class="fig-1rb85bg"></a>
+								</div>
+							</li>
+						</ul>
+					</ul>
+				</div>
+				<!--		<div class="fig-mtev7j"></div>
+			</div>
+			<div class="fig-csxb2z">
+				<button type="button" id="prev" class="fig-2zbaqo" disabled><span class="fig-1dpp2x e1utob8u0"><svg width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="fig-0"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.63859 14.2293C4.36522 13.9559 4.36522 13.5127 4.63859 13.2394L9.87695 8.00099L4.63859 2.76263C4.36522 2.48927 4.36522 2.04605 4.63859 1.77268C4.91195 1.49932 5.35517 1.49932 5.62854 1.77268L11.3619 7.50602C11.6352 7.77939 11.6352 8.2226 11.3619 8.49597L5.62854 14.2293C5.35517 14.5027 4.91195 14.5027 4.63859 14.2293Z" fill="currentColor"></path></svg></span><span class="fig-14hy28z">이전</span></button>
+				<button type="button" id="next" class="fig-2zbaqo"><span class="fig-d85ps1 e1utob8u0"><svg width="1em" height="1em" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="fig-0"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.63859 14.2293C4.36522 13.9559 4.36522 13.5127 4.63859 13.2394L9.87695 8.00099L4.63859 2.76263C4.36522 2.48927 4.36522 2.04605 4.63859 1.77268C4.91195 1.49932 5.35517 1.49932 5.62854 1.77268L11.3619 7.50602C11.6352 7.77939 11.6352 8.2226 11.3619 8.49597L5.62854 14.2293C5.35517 14.5027 4.91195 14.5027 4.63859 14.2293Z" fill="currentColor"></path></svg></span><span class="fig-14hy28z">다음</span></button>
+			</div>-->
 </body>
 </html>

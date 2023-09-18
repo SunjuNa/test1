@@ -2,44 +2,256 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>책 검색 결과</title>
+<title>comicnovel 책 검색 결과</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <style>
+	ul{padding-left:0 !important;}
+	li{list-style: none;}
 	th{
 		border:1px solid black;
 		background-color: darkgray;
 	}
 	td{border: 1px solid black;}
+	#label1{
+		border: 1px solid rgba(0,0,0,0.5%);
+		border-radius: 8px;
+	}
+	#query{
+		outline:none;
+		border: none;
+	}
+	a:link{-webkit-text-decoration: none; text-decoration: none;}
+	a{ color: inherit; letter-spacing: inherit; font-family: inherit; cursor:pointer;}
+	td{text-align: center;}
+	th{text-align:center;}
+	.tab{padding: 0 0 14px;} /*
+	.tab ul{display:flex;}
+	.tab ul li{flex:1; position:relative; margin: 0 0 0 -1px; border: 1px solid #d2d2d2;}
+	.tab ul li.on{ z-index: 2; border-color: #ed008c;}
+	.tab ul li.on button{ background: #ed008c; color: #fff}
+	.tab ul li button{width:100%;height:56px; background: #fff; font-size: 17px; color: #333;}
+	.tab ul li:first-child{border-radius:2px 0 0 2px;}
+	.tab ul li:last-child{border-radius: 0 2px 2px 0;}
+	.tab ul li:last-child{border-radius: 0 2px 2px 0;}
+	.tab_content{display:none; background:#e5e5e5; line-height: 212px; text-align:center; font-size: 100px; color: #000;}
+	.tab_content.on{display: block;} */
+
+	/* 검색결과에 대한 css */
+	.fig-350smd{display:flex; margin: 0 0px;}
+	.fig-nwjdj9{
+		font-weight: normal; line-height: 1.2em; overflow-wrap:break-word; font-size:13px; color: rgb(128,137,145); padding-top:1px;padding-bottom:1px;
+	}
+	.fig-133i3bx{padding:20px 0px 20px 15px; flex:0 0 auto;}
+	.fig-y1n01q{position:relative; display:block;}
+	.fig-15jryr{padding: 20px 15px; flex: 1 1 0%;}
+	.fig-1em3kqr{letter-spacing: -0.03em;}
+	.fig-1godvt2{font-size:14px; font-weight:400; color: black; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis; word-break:keep-all;overflow-wrap:break-word;white-space:normal;max-height:calc(2.8em); line-height:1.4em; margin-bottom:-4px;}
+	.fig-qv61sr{display:flex; flex-direction:column; margin-top: 3px;}
+	.fig-1ue634d{font-weight: normal; line-height:1.2em; overflow-wrap:break-word; padding-top:1px; padding-bottom:1px; font-size: 13px;color:rgb(99,108,115);}
+	.fig-qv61sr>*{
+		margin-top:4px; position:relative; display:flex; -webkit-box-align:center; align-items:center;white-space:pre-wrap;
+	}
+	.fig-8xvp4p{font-weight:normal; line-height:1.2em; overflow-wrap:break-word; font-size:13px; color: rgb(128,137,145); padding-top:1px;padding-bottom:1px; margin-top:4px; display:flex; -webkit-box-align:center; align-items:center; }
+	.fig-bu68v{font-weight:bold; color:rgb(250,114,46); font-size:13px;}
+	.fig-1o682qr{color: rgb(153,153,153); padding-top:1px; margin: 0px 2px; line-height: 1em; font-size: 12px;}
+	.fig-11ohmhr{line-height:1em; display:inline-block;}
+	.fig-3hbzzf{margin-top:9px;}
+	.fig-bnn92g{color: rgb(102,102,102); font-size:13px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow: hidden;text-overflow:ellipsis; word-break:keep-all;white-space: normal; max-height: calc(4.5em);line-height:1.5em;}
+	.fig-1t0wzvl{
+		text-align:left;color:rgb(102,102,102);font-weight:normal;font-size:13px;
+	}
+	.fig-15rattt{color:rgb(31,140,230);font-weight: bold;}
+	.prod_btn_wrap{flex-shrink: 0;width:135px; margin-left:auto; text-align:right;}
+	.btn_wish_icon{width:26px;height:auto;margin-bottom:16px;}
+	.btn_wrap.full{width:110px; margin-left:auto;}
+	.btn_wrap{display:block;font-size:0; text-align: center;}
 </style>
-<body>
-	<h1>책 검색 결과</h1>
-	<table>
-		<thead>
-			<th>title</th>
-			<th>cover</th>
-			<th>author</th>
-			<th>pubDate</th>
-			<th>priceSales</th>
-			<th>categoryName</th>
-			<th>link</th>
-		</thead>
-		<tbody style="text-align:center;">
-			<tr th:if="${results==0}">
-				<td> 해당 쿼리에 부합하는 도서 결과는 없습니다. 다시 올바르게 검색해주세요</td>
-			</tr>
-			<tr th:each="result: ${results}"> <!-- result: 이름-->
-				<td><span style="font-weight:bold" th:text="*{result.title}">Title</span></td>
-				<td>
-					<img th:src="@{*{result.cover}}" alt="no image/">
-				</td>
-				<td><span th:text="*{result.author}">Author</span></td>
-				<td><span th:text="*{result.pubDate}">Publicshed Date</span></td>
-				<td><span th:text="*{result.priceSales}">Price Sales</span></td>
-				<td><span th:text="*{result.categoryName}">Category Name</span></td>
-				<td><a th:href="*{result.link}">Book Info</a></td>
-			</tr>
-		</tbody>
-	</table>
+<body style="width:80%; margin:0 auto;">
+	<!-- Links (sit on top) -->
+    <div class="w3-bar w3-light-grey w3-hide-small">
+		<div>
+		        <a href="#" class="w3-bar-item w3-button">웹툰/만화</a>
+		        <a href="#" class="w3-bar-item w3-button">웹소설</a>
+		        <!-- <a href="#" class="w3-bar-item w3-button">도서</a>	 -->
+		        <a th:if="${userVO!=null}" name="email" id="email" th:text="*{userVO.nickname}" href="/comicnovel/MyPage" class="w3-bar-item w3-button w3-right"></a> 
+		        <!--th:href를 하면 오류가 난다, 아마도 th 결과문은 하나만 쓸수있나보다 -->
+		        <a th:unless="${userVO!=null}" href="/comicnovel/Login" name="email2" id="email2" class="w3-bar-item w3-button w3-right" th:text="로그인">로그인</a>
+		
+		 		<!-- <div class="w3-bar-item w3-right">
+					<div class="form-check form-switch form-check-reverse">
+  						<input th:if="${userVO!=null}" th:checked="*{userVO.adultYN!='n'}" class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
+  							<label class="form-check-label" for="flexSwitchCheckReverse" style="color: red">19금</label>
+  						<input th:unless="${userVO!=null}" class="form-check-input" type="checkbox" id="flexSwitchCheckReverse">
+					</div>
+				</div> -->
+	    </div>
+	</div>
+	
+	<!-- Navigation bar with social media icons -->
+	<div style="margin:0 auto;">
+	    <div class="w3-bar w3-white w3-hide-small">
+	        <a href="#" class="w3-bar-item w3-button"><strong>ComicNovel</strong></a>
+	        <!-- <a href="#" class="w3-bar-item w3-button"><i class="fa fa-facebook-official"></i></a> -->
+	        <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-list"></i></a>
+	       <!-- <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-person"></i></a>-->
+	        <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-book"></i></a>
+	        <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-bell"></i></a>
+	   <!--     <a href="#" class="w3-bar-item w3-button w3-right"><i class="bi bi-cart"></i></a>-->
+	        <form action="/comicnovel/searchResult" method="GET" class="w3-bar-item w3-button w3-right" role="search">
+	            <label id="label1" class="w3-light-grey">
+	                <input name="query" id="query" type="text" th:attr="placeholder=${query}">
+	                <button type="submit" style="border:none; background-color: transparent;"><span id="span1"><i class="bi bi-search button"></i></span></button>
+	            </label>
+	        </form>
+	    </div>
+	</div>
+
+	<!-- 검색 결과 -->
+	<div>
+		<h2 th:text="'&quot;'+${query}+'&quot;'+'에 대한 검색 결과'"
+			style="padding:45px 0 25px; line-height:1;color:#333;"></h2>
+
+		<div class="tab_group">
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+				  <a class="nav-link active" aria-current="page" href="#">도서</a><!-- active -->
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">국내도서</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">해외도서</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">전자책</a>
+				  </li>
+				<!-- <li class="nav-item">
+				  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+				</li> -->
+			  </ul>
+
+			<!-- checkbox -->
+			<!-- 전체건에 대한 수를 나타냄  -->
+			<div class="location">
+				<nav class="w3-light-grey" style="display:flex; -webkit-box-pack:justify; box-sizing: border-box; justify-content: flex-start;width:auto; align-items: center;">
+					<li style="padding:0.2rem;">
+						<select class="form-select" aria-label="Default select example">
+							<option selected>관련도</option>
+							<option vaeue="1">출간일</option>
+							<option value="2">제목</option>
+							<option value="3">판매량</option>
+							<option value="4">고객평점</option>
+							<option value="5">마이리뷰갯수</option>
+						  </select>
+					</li>
+					<li style="margin-left:auto;">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+							<label class="form-check-label" for="flexCheckDefault">
+							  성인 제외 &nbsp;
+							</label>
+						  </div>
+					</li>
+				</nav>
+			</div>
+
+			<!-- 검색 결과 -->
+			<div class="tab_content on">
+				<p th:if="${results==0}">
+					해당 쿼리에 부합하는 도서 결과는 없습니다. 다시 올바르게 검색해주세요
+				</p>
+				<div class="fig-350smd" th:each="result: ${results}" style="border-top:1px solid lightgray; border-bottom:1px solid lightgray;"> <!-- contents1 검색테이블 -->
+					<div class="fig-133i3bx"> <!-- cover image -->
+						<a th:href="*{result.link}" class="fig-y1n01q">
+							<img th:src="@{*{result.cover}}" alt="no image/">
+						</a>
+					</div>
+					<div class="fig-15jryr"><!-- 글부분 -->
+						<div class="fig-1em3kqr"><!-- title -->
+							<a th:href="*{result.link}" class="fig-1godvt2">
+								<span style="letter-spacing:-0.03em;" th:text="*{result.title}"></span>
+							</a>
+						</div>
+						<div class="fig-qv61sr">
+							<p class="fig-1ue634d" style="margin-bottom:0" th:text="*{result.author}"></p><!-- 작가이름 -->
+							<div style="display:flex; justify-content: flex-start;">
+								<img width="16" height="16" src="https://img.icons8.com/small/16/FAB005/star.png" alt="star"/>	
+								<span style="font-size:13px;">13</span>
+							</div><!-- th로 리뷰수넣기 -->
+							<div class="fig-1em3kqr"><!-- 출판사, 카테고리, 발행연도 -->
+								<div style="display:flex; justify-content: flex-start; font-size:13px;">
+									<span style="letter-spacing:-0.03em; margin-right:15px;">대원미디어</span>
+									<span style="color:lightgray">||&nbsp;</span>
+									<span style="letter-spacing:-0.03em; margin-right:15px;">논문</span>
+									<span style="color:lightgray">||&nbsp;</span>
+									<span style="letter-spacing:-0.03em; margin-right:15px;" th:text="*{result.pubDate}"></span>
+								</div>
+							</div>
+						</div>
+						<div class="fig-3hbzzf">
+							<a th:href="*{result.link}" class="fig-akezd9">
+								<p class="fig-bnn92g"
+								>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, laudantium ipsum! Obcaecati quis repellat cupiditate impedit quos. Dolorem odit rem veniam accusamus hic quis commodi enim doloremque et, molestias tenetur.</p> <!-- 줄거리 th적기 -->
+							</a>
+						</div><!-- 줄거리 -->
+						<p class="fig-1t0wzvl">소장
+							<span class="fig-15rattt"
+								th:text="*{result.priceSales}">
+							</span>
+						</p><!-- 가격 -->
+					</div>
+					<div class="prod_btn_wrap" style="padding-top:20px;">
+						<button type="button" class="btn_wish_icon">
+							<img width="24" height="24" src="https://img.icons8.com/material-outlined/24/like--v1.png" alt="like--v1"/>
+						</button>
+						<div class="btn_wrwap full">
+							<button type="button" class="btn btn-secondary">장바구니</button><!-- 장바구니 -->
+							<button type="button" class="btn btn-info">바로구매</button><!-- 바로구매하러가기 -->
+						</div><!-- 구매,장바구니 -->
+					</div><!-- 버튼 영역 -->
+				</div>
+			</div>
+			<div class="tab_content">contents2</div>
+			<div class="tab_content">contents3</div>
+		</div>
+		<!-- <table>
+			<thead>
+				<th>제목</th>
+				<th>표지</th>
+				<th>작가</th>
+				<th>발행날짜</th>
+				<th>가격</th>
+				<th>카테고리</th>
+				<th>링크</th>
+			</thead>
+			<tbody style="text-align:center;">
+				<tr th:if="${results==0}">
+					<td> 해당 쿼리에 부합하는 도서 결과는 없습니다. 다시 올바르게 검색해주세요</td>
+				</tr>
+				<tr th:each="result: ${results}"> 
+					<td><span style="font-weight:bold" th:text="*{result.title}">제목</span></td>
+					<td>
+						<img th:src="@{*{result.cover}}" alt="no image/">
+					</td>
+					<td><span th:text="*{result.author}">작가</span></td>
+					<td><span th:text="*{result.pubDate}">발행날짜</span></td>
+					<td><span th:text="*{result.priceSales}">가격</span></td>
+					<td><span th:text="*{result.categoryName}">카테고리</span></td>
+					<td><a th:href="*{result.link}">링크</a></td>
+				</tr>
+			</tbody>
+		</table> -->
+	</div>
 </body>
 <script th:src="@{/js/jquery-3.7.0.js}"></script>
 <script th:inline="javascript">

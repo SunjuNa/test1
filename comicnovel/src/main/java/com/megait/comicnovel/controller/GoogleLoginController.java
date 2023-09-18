@@ -144,6 +144,7 @@ public class GoogleLoginController {
 		return new RedirectView("comicnovel/loginFail");//로그인되지 않은 상태
 	}
 	
+	//google에서 생일을 받아오는 건 내 스킬한계로 javascript로 받아와서 이모양 이꼬라지이다
 	@RequestMapping(value="/CheckOK", method={RequestMethod.POST})
 	public RedirectView checkOK(int birthday_year, String userEmail, HttpSession session) {
 		log.info("[checkOK()] home test calling....");

@@ -12,6 +12,7 @@ public class AladinNewBookPrdDTO {
 	private String cover;
 	private boolean adult;
 	private Integer customerReviewRank;
+	private Integer categoryId;
 	
 	public AladinNewBookPrdDTO(org.json.JSONObject aladinNewBookPrdJSON) throws JSONException{
 		this.title=aladinNewBookPrdJSON.getString("title");
@@ -20,6 +21,7 @@ public class AladinNewBookPrdDTO {
 		this.cover=aladinNewBookPrdJSON.getString("cover");
 		this.adult=aladinNewBookPrdJSON.getBoolean("adult");
 		this.customerReviewRank=aladinNewBookPrdJSON.getInt("customerReviewRank");
+		this.categoryId=aladinNewBookPrdJSON.getInt("categoryId");
 		
 	}
 }

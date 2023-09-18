@@ -21,7 +21,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BookSearchService {
 	public List<AladinProductDTO> aladinShopSearchAPI(AladinReqVarDTO aladinVar) throws JSONException {
-			 
+		//참고
+		//https://wonin.tistory.com/499
 		//aladin api url
 		 String url = "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx";
 		 URI uri = UriComponentsBuilder.fromHttpUrl(url)
