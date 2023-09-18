@@ -35,8 +35,8 @@ public class NaverSearchService {
 		
 		RequestEntity<Void> req = RequestEntity
 	                .get(uri)
-	                .header("X-Naver-Client-Id", "l1WGDhflcnJk2SFeKAF2")
-	                .header("X-Naver-Client-Secret", "8TREi7Q87p")
+	                .header("X-Naver-Client-Id", "")
+	                .header("X-Naver-Client-Secret", "")
 	                .build();
 		ResponseEntity<String> result = restTemplate.exchange(req, String.class);
         List<NaverSearchPrdDTO> naverProductDTOs = fromJSONtoNaverProduct(result.getBody());
